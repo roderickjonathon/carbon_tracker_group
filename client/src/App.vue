@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav>
-      <img src="assets/logo.png" alt="logo"/>
+
 
     </nav>
     <profiles-form/>
@@ -9,12 +9,13 @@
 
   </div>
 </template>
-<title>Code Clan Carbon Count</title>
+<title>C02 Tracker</title>
 <script>
 
 import ProfilesList from './components/ProfilesList.vue'
 import ProfilesForm from './components/ProfilesForm.vue'
 import { eventBus } from './main.js'
+
 
 export default {
   name: 'app',
@@ -78,12 +79,15 @@ export default {
   margin-right: auto;
   margin-left: auto;
 
-  /* background-image: url('./assets/earth.jpg'); */
+
+
+
   /* display: flex; */
 }
 
 body {
-background-color: black;
+  background-color: #535657;
+
 
 }
 

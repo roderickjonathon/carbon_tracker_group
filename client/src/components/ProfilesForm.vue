@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="big-form">
+
     <!-- This is the form for getting info from user -->
     <b-tabs justified fill content-class="mt-3">
 
@@ -32,7 +33,7 @@
 
     <b-tab title="Purchases">
 
-      <b-form-group label="What everyday purchases did you make today?">
+      <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
           <b-form-checkbox value="clothes">New Clothes</b-form-checkbox>
           <b-form-checkbox value="ready_meals">Ready-made meals/sandwhiches</b-form-checkbox>
@@ -72,15 +73,15 @@
     </b-tab>
 
     <b-tab title="Recycling">
-      <b-form-group label="What do you recycle?">
+      <b-form-group id="checkbox-label" label="What do you recycle?">
         <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
-          <b-form-checkbox value="plastic">Plastic</b-form-checkbox>
-          <b-form-checkbox value="glass">Glass</b-form-checkbox>
-          <b-form-checkbox value="food waste">Food Waste</b-form-checkbox>
-          <b-form-checkbox value="electronics">Electronics</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="plastic">Plastic</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="glass">Glass</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="food waste">Food Waste</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="electronics">Electronics</b-form-checkbox>
         </b-form-checkbox-group>
 
-        <form v-on:submit="addProfile">
+        <form id="submit-button" v-on:submit="addProfile">
         <button type="submit" name="button">Complete Form</button>
       </form>
       </b-form-group>
@@ -199,5 +200,18 @@ label {
 
 #details-form {
   border-radius: 15px;
+}
+
+#submit-button {
+  background-color:  #535657;
+  font-size: 50%;
+}
+
+#checkbox-label {
+  font-size: 200%;
+}
+
+#checkbox {
+  font-size: 300%;
 }
 </style>
