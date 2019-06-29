@@ -25,59 +25,57 @@
   <div>
     <b-tabs justified fill content-class="mt-3">
 
-
-      <b-tab   title="Personal Details" active>
-        <h2>Please enter your details to begin:</h2>
-        <form v-on:submit="addProfile" id="details-form">
-          <label for="name">Name:</label>
-          <input  type="text" name="name" value="" v-model="name" required>
-          <label for="email">Email:</label>
-          <input  type="email" name="email" value="" v-model="email" required>
-          <input type="submit" value="Next"/>
-        </form>
+      <b-tab v-model="tabIndex"   title="Personal Details" active >
+        <b-form-input v-model="name" placeholder="Enter your name"></b-form-input>
+        <b-form-input v-model="email" placeholder="Enter your email"></b-form-input>
       </b-tab>
-
 
       <b-tab  title="Travel Habits">
-        <h2>How did you travel to CodeClan today?</h2>
+        <h2>So {{name}}, How did you travel to CodeClan today?</h2>
 
-          <select v-model="travel" >
-            <option disabled value="">Select a mode of transport...</option>
-            <option>Bus</option>
-            <option>Train</option>
-            <option>Cycle/Walk</option>
-            <option>Car/Taxi</option>
+        <select v-model="travel" >
+          <option disabled value="">Select a mode of transport...</option>
+          <option>Bus</option>
+          <option>Train</option>
+          <option>Cycle/Walk</option>
+          <option>Car/Taxi</option>
+        </select>
+      </form>
+    </b-tab>
 
-          </select>
+    <b-tab title="Dietry">
+      <b-form-group label="Choose a diet type:">
+        <b-form-radio v-model="food" name="some-radios" value="vegatarian">Vegetarian</b-form-radio>
+        <b-form-radio v-model="food" name="some-radios" value="vegan">Vegan</b-form-radio>
+        <b-form-radio v-model="food" name="some-radios" value="meat">Meat Eater</b-form-radio>
+        <b-form-radio v-model="food" name="some-radios" value="pescetarian">Pescetarian</b-form-radio>
+      </b-form-group>
+    </b-tab>
 
-        </form>
-
-      </b-tab>
-
-
-
-      <b-tab title="Dietry" active>
-
-
-
-      </b-tab>
-
-      <b-tab title="Purchases">
-
-      </b-tab>
+    <b-tab title="Purchases">
+      <b-form-group label="Choose a diet type:">
+        <b-form-radio v-model="purchases" name="some-radios" value="clothes">Clothes</b-form-radio>
+        <b-form-radio v-model="purchases" name="some-radios" value="pre-made-food">Ready-made meals/sandwhiches</b-form-radio>
+        <b-form-radio v-model="purchases" name="some-radios" value="bottled-water">Bottled Water</b-form-radio>
+        <b-form-radio v-model="purchases" name="some-radios" value="barista-coffee">Barista Coffee</b-form-radio>
+      </b-form-group>
+    </b-tab>
 
 
-      <b-tab title="Devices">
+    <b-tab title="Devices">
+      
 
-      </b-tab>
-    </b-tabs>
-    <div class="text-center">
-      <b-button-group class="mt-2">
-        <b-button v-on:click="tabIndex--">Previous</b-button>
-        <b-button v-on:click="tabIndex++">Next</b-button>
-      </b-button-group>
-    </div>
+    </b-tab>
+
+
+  </b-tabs>
+  <div class="text-center">
+    <b-button-group class="mt-2">
+      <b-button v-on:click="tabIndex--">Previous</b-button>
+      <b-button v-on:click="tabIndex++">Next</b-button>
+    </b-button-group>
   </div>
+</div>
 </div>
 </template>
 
@@ -92,12 +90,13 @@ export default {
   name: "profiles-form",
   data(){
     return {
-      tabIndex: 0,
+      tabIndex: 1,
       name: "",
       email: "",
       travel: "",
       food: "",
-      recycling: ""
+      recycling: "",
+      purchases: ""
 
     }
   },
