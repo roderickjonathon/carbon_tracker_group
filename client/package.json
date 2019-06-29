@@ -1,5 +1,5 @@
 {
-  "name": "carbon_app",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,8 +8,6 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "highcharts": "^7.1.2",
-    "router": "^1.3.3",
     "vue": "^2.6.10"
   },
   "devDependencies": {

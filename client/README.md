@@ -1,4 +1,4 @@
-# carbon_app
+# client
 
 ## Project setup
 ```
