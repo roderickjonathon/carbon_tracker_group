@@ -1,32 +1,60 @@
 <template lang="html">
   <div class="">
-    <form class="" v-on:submit.prevent="addProfile" method="post">
-      <header>Code Clan Carbon Counter</header>
-      <br>
+    <!-- <form class="" v-on:submit.prevent="addProfile" method="post">
+    <header>Code Clan Carbon Counter</header>
+    <br>
 
-      <label>Add Profile Name: </label>
-      <input type="text" v-model="name" required/>
+    <label>Add Profile Name: </label>
+    <input type="text" v-model="name" required/>
 
-      <label>Add E-mail: </label>
-      <input type="email" v-model="email" />
+    <label>Add E-mail: </label>
+    <input type="email" v-model="email" />
 
-      <label>Add Travel Mode: </label>
-      <input type="travel-mode" v-model="travel" />
+    <label>Add Travel Mode: </label>
+    <input type="travel-mode" v-model="travel" />
 
-      <label>Add Food Preference: </label>
-      <input type="food" v-model="food" />
+    <label>Add Food Preference: </label>
+    <input type="food" v-model="food" />
 
-      <label>Add Recycling Preference: </label>
-      <input type="recycling" v-model="recycling" />
+    <label>Add Recycling Preference: </label>
+    <input type="recycling" v-model="recycling" />
 
-      <label>Create Profile: </label>
-      <input type="submit" value="Add profile" />
-    </form>
+    <label>Create Profile: </label>
+    <input type="submit" value="Add profile" />
+  </form> -->
+  <div>
+    <b-tabs content-class="mt-3">
+      <b-tab   title="First" active>
+        <p>Please enter your details to begin:</p>
+        <label for="name">Name:</label>
+        <input  type="text" name="name" value="" v-model="name" required>
+        <label for="email">Email:</label>
+        <input  type="email" name="email" value="" v-model="email" required>
+
+      </b-tab>
+
+
+      <b-tab  title="Second">
+
+      </b-tab>
+
+
+
+      <b-tab title="Disabled" disabled>
+
+
+      </b-tab>
+    </b-tabs>
   </div>
+</div>
 </template>
 
 <script>
 import { eventBus } from '@/main';
+import { TabsPlugin } from 'bootstrap-vue'
+
+
+
 
 export default {
   name: "profiles-form",
@@ -75,25 +103,25 @@ export default {
 }
 
 form {
-	width: 75%;
-	margin: 0 auto;
-	background: rgba(255, 255, 255, 0.7);
-	padding: 20px;
-	margin-bottom: 40px;
+  width: 75%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  margin-bottom: 40px;
 }
 
 h2 {
-	margin: 10px 0;
-	padding: 0;
+  margin: 10px 0;
+  padding: 0;
 }
 
 label {
-	min-width: 100px;
-	display: inline-block;
+  min-width: 100px;
+  display: inline-block;
 }
 
 .formWrap {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 </style>

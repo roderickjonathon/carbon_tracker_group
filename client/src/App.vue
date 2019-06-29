@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <profiles-form/>
-    <profiles-list :profiles="profiles"/>
+    <!-- <profiles-list :profiles="profiles"/> -->
 
   </div>
 </template>
