@@ -1,28 +1,6 @@
 <template lang="html">
   <div class="big-form">
-    <!-- <form class="" v-on:submit.prevent="addProfile" method="post">
-    <header>Code Clan Carbon Counter</header>
-    <br>
-
-    <label>Add Profile Name: </label>
-    <input type="text" v-model="name" required/>
-
-    <label>Add E-mail: </label>
-    <input type="email" v-model="email" />
-
-    <label>Add Travel Mode: </label>
-    <input type="travel-mode" v-model="travel" />
-
-    <label>Add Food Preference: </label>
-    <input type="food" v-model="food" />
-
-    <label>Add Recycling Preference: </label>
-    <input type="recycling" v-model="recycling" />
-
-    <label>Create Profile: </label>
-    <input type="submit" value="Add profile" />
-  </form> -->
-
+    <!-- This is the form for getting info from user -->
     <b-tabs justified fill content-class="mt-3">
 
       <b-tab v-model="tabIndex"   title="Personal Details" active >
@@ -53,11 +31,15 @@
     </b-tab>
 
     <b-tab title="Purchases">
-      <b-form-group label="What everyday purchases did you make today?:">
-        <b-form-radio v-model="purchases" name="some-radios" value="clothes">Clothes</b-form-radio>
-        <b-form-radio v-model="purchases" name="some-radios" value="pre-made-food">Ready-made meals/sandwhiches</b-form-radio>
-        <b-form-radio v-model="purchases" name="some-radios" value="bottled-water">Bottled Water</b-form-radio>
-        <b-form-radio v-model="purchases" name="some-radios" value="barista-coffee">Barista Coffee</b-form-radio>
+
+      <b-form-group label="What everyday purchases did you make today?">
+        <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
+          <b-form-checkbox value="clothes">New Clothes</b-form-checkbox>
+          <b-form-checkbox value="ready_meals">Ready-made meals/sandwhiches</b-form-checkbox>
+          <b-form-checkbox value="bottled_water">Bottles Water</b-form-checkbox>
+          <b-form-checkbox value="barista_coffee">Barista Coffee</b-form-checkbox>
+        </b-form-checkbox-group>
+
       </b-form-group>
     </b-tab>
 
@@ -85,12 +67,23 @@
         <option value=4.5> Over 4 hours</option>
       </select>
 
-      <h3>You spent a total of {{ getTotalTime() }} hours using devices and appliances today:</h3>
-
+      <!-- <h3>You spent a total of {{ getTotalTime() }} hours using devices and appliances today:</h3> -->
+      <!-- The above function isn't working so we'll need to sort that! -->
     </b-tab>
 
     <b-tab title="Recycling">
-      
+      <b-form-group label="What do you recycle?">
+        <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
+          <b-form-checkbox value="plastic">Plastic</b-form-checkbox>
+          <b-form-checkbox value="glass">Glass</b-form-checkbox>
+          <b-form-checkbox value="food waste">Food Waste</b-form-checkbox>
+          <b-form-checkbox value="electronics">Electronics</b-form-checkbox>
+        </b-form-checkbox-group>
+
+        <form v-on:submit="addProfile">
+        <button type="submit" name="button">Complete Form</button>
+      </form>
+      </b-form-group>
 
     </b-tab>
 
@@ -103,6 +96,7 @@
       <b-button v-on:click="tabIndex--">Previous</b-button>
       <b-button v-on:click="tabIndex++">Next</b-button>
     </b-button-group>
+    <!-- These buttons are supposed to flip  between the tabs but had no luck fixing them yet, doing exactly what the docs say! -->
   </div>
 </div>
 </div>
@@ -124,8 +118,8 @@ export default {
       email: "",
       travel: "",
       food: "",
-      recycling: "",
-      purchases: "",
+      recycling: [],
+      purchases: [],
       devices: 0,
 
       deviceTimeA: 0,
@@ -163,8 +157,8 @@ export default {
       this.devices = ""
     },
 
-    getTotalTime(){
-
+    getTotalDeviceTime(){
+      // Need to sort this function for calculating total device time use.
     }
 
 

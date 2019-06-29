@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <nav>
+      <img src="assets/logo.png" alt="logo"/>
+
+    </nav>
     <profiles-form/>
     <!-- <profiles-list :profiles="profiles"/> -->
 
@@ -79,7 +83,7 @@ export default {
 }
 
 body {
-
+background-color: black;
 
 }
 
