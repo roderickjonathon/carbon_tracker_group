@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="big-form">
     <!-- <form class="" v-on:submit.prevent="addProfile" method="post">
     <header>Code Clan Carbon Counter</header>
     <br>
@@ -22,7 +22,7 @@
     <label>Create Profile: </label>
     <input type="submit" value="Add profile" />
   </form> -->
-  <div>
+
     <b-tabs justified fill content-class="mt-3">
 
       <b-tab v-model="tabIndex"   title="Personal Details" active >
@@ -53,7 +53,7 @@
     </b-tab>
 
     <b-tab title="Purchases">
-      <b-form-group label="Choose a diet type:">
+      <b-form-group label="What everyday purchases did you make today?:">
         <b-form-radio v-model="purchases" name="some-radios" value="clothes">Clothes</b-form-radio>
         <b-form-radio v-model="purchases" name="some-radios" value="pre-made-food">Ready-made meals/sandwhiches</b-form-radio>
         <b-form-radio v-model="purchases" name="some-radios" value="bottled-water">Bottled Water</b-form-radio>
@@ -63,9 +63,38 @@
 
 
     <b-tab title="Devices">
+      <select v-model="deviceTimeA" >
+        <option disabled value="">How long did you spend using your phone today?</option>
+        <option value="1"> Less than 1 hour</option>
+        <option value="1.5"> 1 to 2 hours </option>
+        <option value="3"> 2-4 hours</option>
+        <option value="4.5"> Over 4 hours</option>
+      </select>
+      <select v-model="deviceTimeB" >
+        <option disabled value="">How long did you spend watching TV/Streaming?</option>
+        <option value="1"> Less than 1 hour</option>
+        <option value="1.5"> 1 to 2 hours </option>
+        <option value="3"> 2-4 hours</option>
+        <option value="4.5"> Over 4 hours</option>
+      </select>
+      <select v-model="deviceTimeC" >
+        <option disabled value="">How long did you spend using other electrical devices?</option>
+        <option value=1> Less than 1 hour</option>
+        <option value=1.5> 1 to 2 hours </option>
+        <option value=3> 2-4 hours</option>
+        <option value=4.5> Over 4 hours</option>
+      </select>
+
+      <h3>You spent a total of {{ getTotalTime() }} hours using devices and appliances today:</h3>
+
+    </b-tab>
+
+    <b-tab title="Recycling">
       
 
     </b-tab>
+
+
 
 
   </b-tabs>
@@ -96,7 +125,12 @@ export default {
       travel: "",
       food: "",
       recycling: "",
-      purchases: ""
+      purchases: "",
+      devices: 0,
+
+      deviceTimeA: 0,
+      deviceTimeB: 0,
+      deviceTimeC: 0
 
     }
   },
@@ -107,7 +141,9 @@ export default {
         email: this.email,
         travel: this.travel,
         food: this.food,
-        recycling: this.recycling
+        recycling: this.recycling,
+        purchases: this.purchases,
+        devices: this.devices
       }
       fetch("http://localhost:3000/api/profiles", {
         method: "POST",
@@ -123,30 +159,15 @@ export default {
       this.travel = ""
       this.food = ""
       this.recycling = ""
+      this.purchases = ""
+      this.devices = ""
     },
 
-    // addDetails(){
-    //   const details = {
-    //     name: this.name,
-    //     email: this.email
-    //
-    //   }
-    //   fetch("http://localhost:3000/api/profiles", {
-    //     method: "POST",
-    //     body: JSON.stringify(details),
-    //     headers: { 'Content-Type': 'application/json'}
-    //   })
-    //   .then((res)=> res.json())
-    //   .then((data) => {
-    //     eventBus.$emit("profile-added", data)
-    //   })
-    //   this.name = ""
-    //   this.email = ""
-    //   this.travel = ""
-    //   this.food = ""
-    //   this.recycling = ""
-    //
-    // }
+    getTotalTime(){
+
+    }
+
+
   }
 }
 </script>
@@ -155,8 +176,10 @@ export default {
 .container{
   background-color: #DEE7E7;
   margin: auto;
-  /* width: 80%;  */
+  /* width: 80%; */
 }
+
+
 
 form {
   width: 75%;

@@ -68,10 +68,19 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 10%;
   background-color: #535657;
-  background-image: url('./assets/earth.jpg');
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+
+  /* background-image: url('./assets/earth.jpg'); */
   /* display: flex; */
+}
+
+body {
+
+
 }
 
 
