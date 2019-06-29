@@ -71,7 +71,7 @@ export default {
   margin-top: 50px;
   background-color: #535657;
   background-image: url('./assets/earth.jpg');
-  display: flex;
+  /* display: flex; */
 }
 
 

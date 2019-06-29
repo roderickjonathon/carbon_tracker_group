@@ -22,6 +22,7 @@
 
 <script>
 import { eventBus } from '@/main';
+
 export default {
   name: "profiles-form",
   data(){
@@ -30,7 +31,8 @@ export default {
       email: "",
       travel: "",
       food: "",
-      recycling: []
+      recycling: "",
+      checked_in: true
     }
   },
   methods: {
@@ -40,7 +42,8 @@ export default {
         email: this.email,
         travel: this.travel,
         food: this.food,
-        recycling: this.recycling
+        recycling: this.recycling,
+        checked_in: this.checked_in
       }
       fetch("http://localhost:3000/api/profiles", {
         method: "POST",
@@ -51,7 +54,12 @@ export default {
       .then((data) => {
         eventBus.$emit("profile-added", data)
       })
-      this.name = this.email = ""
+      this.name = ""
+      this.email = ""
+      this.travel = ""
+      this.food = ""
+      this.recycling = ""
+      this.checked_in = true
     }
   }
 }

@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 
 MongoClient.connect('mongodb://localhost:27017')
 .then(( visitor ) => {
-  const db = visitor.db('carbon_tracker');
+  const db = visitor.db('carbon_counter');
   const profiles = db.collection("profiles");
   const profilesRouter = createRouter(profiles);
   app.use('/api/profiles', profilesRouter);
