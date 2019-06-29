@@ -23,28 +23,60 @@
     <input type="submit" value="Add profile" />
   </form> -->
   <div>
-    <b-tabs content-class="mt-3">
-      <b-tab   title="First" active>
-        <p>Please enter your details to begin:</p>
-        <label for="name">Name:</label>
-        <input  type="text" name="name" value="" v-model="name" required>
-        <label for="email">Email:</label>
-        <input  type="email" name="email" value="" v-model="email" required>
+    <b-tabs justified fill content-class="mt-3">
+
+
+      <b-tab   title="Personal Details" active>
+        <h2>Please enter your details to begin:</h2>
+        <form v-on:submit="addProfile" id="details-form">
+          <label for="name">Name:</label>
+          <input  type="text" name="name" value="" v-model="name" required>
+          <label for="email">Email:</label>
+          <input  type="email" name="email" value="" v-model="email" required>
+          <input type="submit" value="Next"/>
+        </form>
+      </b-tab>
+
+
+      <b-tab  title="Travel Habits">
+        <h2>How did you travel to CodeClan today?</h2>
+
+          <select v-model="travel" >
+            <option disabled value="">Select a mode of transport...</option>
+            <option>Bus</option>
+            <option>Train</option>
+            <option>Cycle/Walk</option>
+            <option>Car/Taxi</option>
+
+          </select>
+
+        </form>
 
       </b-tab>
 
 
-      <b-tab  title="Second">
+
+      <b-tab title="Dietry" active>
+
+
+
+      </b-tab>
+
+      <b-tab title="Purchases">
 
       </b-tab>
 
 
-
-      <b-tab title="Disabled" disabled>
-
+      <b-tab title="Devices">
 
       </b-tab>
     </b-tabs>
+    <div class="text-center">
+      <b-button-group class="mt-2">
+        <b-button v-on:click="tabIndex--">Previous</b-button>
+        <b-button v-on:click="tabIndex++">Next</b-button>
+      </b-button-group>
+    </div>
   </div>
 </div>
 </template>
@@ -60,11 +92,13 @@ export default {
   name: "profiles-form",
   data(){
     return {
+      tabIndex: 0,
       name: "",
       email: "",
       travel: "",
       food: "",
       recycling: ""
+
     }
   },
   methods: {
@@ -90,7 +124,30 @@ export default {
       this.travel = ""
       this.food = ""
       this.recycling = ""
-    }
+    },
+
+    // addDetails(){
+    //   const details = {
+    //     name: this.name,
+    //     email: this.email
+    //
+    //   }
+    //   fetch("http://localhost:3000/api/profiles", {
+    //     method: "POST",
+    //     body: JSON.stringify(details),
+    //     headers: { 'Content-Type': 'application/json'}
+    //   })
+    //   .then((res)=> res.json())
+    //   .then((data) => {
+    //     eventBus.$emit("profile-added", data)
+    //   })
+    //   this.name = ""
+    //   this.email = ""
+    //   this.travel = ""
+    //   this.food = ""
+    //   this.recycling = ""
+    //
+    // }
   }
 }
 </script>
@@ -124,4 +181,7 @@ label {
   margin-bottom: 10px;
 }
 
+#details-form {
+  border-radius: 15px;
+}
 </style>
