@@ -17,7 +17,7 @@
       <input type="food" v-model="food" />
 
       <label>Add Recycling Preference: </label>
-      <input type="recycling" v-model="Recycling" />
+      <input type="recycling" v-model="recycling" />
 
       <label>Create Profile: </label>
       <input type="submit" value="Add profile" />
