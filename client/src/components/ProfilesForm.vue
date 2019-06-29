@@ -3,18 +3,23 @@
     <form class="" v-on:submit.prevent="addProfile" method="post">
       <header>Code Clan Carbon Counter</header>
       <br>
+
       <label>Add Profile Name: </label>
       <input type="text" v-model="name" required/>
+
       <label>Add E-mail: </label>
       <input type="email" v-model="email" />
+
       <label>Add Travel Mode: </label>
       <input type="travel-mode" v-model="travel" />
+
       <label>Add Food Preference: </label>
       <input type="food" v-model="food" />
+
       <label>Add Recycling Preference: </label>
       <input type="recycling" v-model="Recycling" />
+
       <label>Create Profile: </label>
-      <input type="checkbox" v-model="checked_in"/>
       <input type="submit" value="Add profile" />
     </form>
   </div>
@@ -31,8 +36,7 @@ export default {
       email: "",
       travel: "",
       food: "",
-      recycling: "",
-      checked_in: true
+      recycling: ""
     }
   },
   methods: {
@@ -42,8 +46,7 @@ export default {
         email: this.email,
         travel: this.travel,
         food: this.food,
-        recycling: this.recycling,
-        checked_in: this.checked_in
+        recycling: this.recycling
       }
       fetch("http://localhost:3000/api/profiles", {
         method: "POST",
@@ -59,7 +62,6 @@ export default {
       this.travel = ""
       this.food = ""
       this.recycling = ""
-      this.checked_in = true
     }
   }
 }

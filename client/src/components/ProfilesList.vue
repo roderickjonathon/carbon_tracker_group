@@ -7,7 +7,6 @@
         <p>{{ profile.travel}}</p>
         <p>{{ profile.food}}</p>
         <p>{{ profile.recycling}}</p>
-        <p>checked in: {{ profile.checked_in}}</p>
 
         <button type="button" v-on:click="deleteProfile (profile)">Delete Profile</button>
 
