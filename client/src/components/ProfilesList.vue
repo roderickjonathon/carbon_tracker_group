@@ -7,6 +7,8 @@
         <p>{{ profile.travel}}</p>
         <p>{{ profile.food}}</p>
         <p>{{ profile.recycling.join("  ")}}</p>
+        <p>{{ profile.purchases.join(" ")}}</p>
+        <p>{{ profile.devices.join(" ")}}</p>
         <button type="button" v-on:click="deleteProfile (profile)">Delete Profile</button>
         <button type="button">Create Carbon Score</button>
 

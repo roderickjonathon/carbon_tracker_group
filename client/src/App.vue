@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav>
-
+      <img src="@/assets/images/logo_earth.png" alt="">
 
     </nav>
     <profiles-form/>
@@ -77,7 +77,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 10%;
-  background-color: #535657;
+  background-color: #53565700;
   width: 80%;
   margin-right: auto;
   margin-left: auto;
@@ -88,9 +88,19 @@ export default {
   /* display: flex; */
 }
 
-body {
-  background-color: #535657;
 
+.nav-item {
+  color: white;
+}
+
+body {
+  background-color: #53565700;
+  background-image: url('assets/images/earthbg.jpg');
+
+
+}
+
+img {
 
 }
 

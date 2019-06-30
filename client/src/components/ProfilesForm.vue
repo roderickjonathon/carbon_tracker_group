@@ -48,67 +48,54 @@
 
     <b-tab id="devices" title="Devices">
       <b-form-group id="devices-question" label="How long did you spend using devices?">
+        <p>Phones, tablets, tv, streaming etc</p>
       </b-form-group>
-      <b-form-checkbox-group>
-        <label id="radio-label" for="phone">Phone:</label>
-        <b-form-checkbox-group buttons name="phone">
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="1">Less than 1 hour</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="1.5">1-2 hours</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="3">2-4 hours</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="4.5">4+ hours</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-checkbox-group>
+      <div>
+        <b-form-group>
 
-      <b-form-checkbox-group>
-        <label id="radio-label" for="streaming">TV/Streaming:</label>
-        <b-form-checkbox-group buttons name="streaming">
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="1">Less than 1 hour</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="1.5">1-2 hours</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="3">2-4 hours</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="4.5">4+ hours</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-checkbox-group>
-
-      <b-form-checkbox-group>
-        <label id="radio-label" for="other">Other Appliances:</label>
-        <b-form-checkbox-group buttons name="other">
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="1">Less than 1 hour</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="1.5">1-2 hours</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="3">2-4 hours</b-form-checkbox>
-          <b-form-checkbox v-model="devices" name="some-checkboxs" value="4.5">4+ hours</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-checkbox-group>
-      <h3>You spent a total of {{ getTotalDeviceTime() }} hours using devices and appliances today:</h3>
-    </b-tab>
-
-    <!-- The above function isn't working so we'll need to sort that! -->
-
-
-    <b-tab title="Recycling">
-      <b-form-group id="checkbox-label" label="What do you recycle?">
-        <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
-          <b-form-checkbox id="checkbox" value="plastic">Plastic</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="glass">Glass</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="food waste">Food Waste</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="electronics">Electronics</b-form-checkbox>
-        </b-form-checkbox-group>
-
-        <form id="submit-button" v-on:submit="addProfile">
-          <button type="submit" name="button">Complete Form</button>
-        </form>
-      </b-form-group>
-
-    </b-tab>
+          <b-form-checkbox-group buttons name="phone" required>
+            <b-form-checkbox v-model="devices" name="J" value="1">Less than 1 hour</b-form-checkbox>
+            <b-form-checkbox v-model="devices" name="K" value="2">1-2 hours</b-form-checkbox>
+            <b-form-checkbox v-model="devices" name="L" value="3">2-4 hours</b-form-checkbox>
+            <b-form-checkbox v-model="devices" name="M" value="4">4+ hours</b-form-checkbox>
+          </b-form-checkbox-group>
+        </b-form-group>
+      </div>
 
 
 
 
-  </b-tabs>
-  <div class="text-center">
-    <b-button-group class="mt-2">
-      <b-button @click="tabIndex--">Previous</b-button>
-      <b-button @click="tabIndex++">Next</b-button>
-    </b-button-group>
+
+</b-tab>
+
+<!-- The above function isn't working so we'll need to sort that! -->
+
+
+<b-tab title="Recycling">
+  <b-form-group id="checkbox-label" label="What do you recycle?">
+    <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
+      <b-form-checkbox id="checkbox" value="plastic">Plastic</b-form-checkbox>
+      <b-form-checkbox id="checkbox" value="glass">Glass</b-form-checkbox>
+      <b-form-checkbox id="checkbox" value="food waste">Food Waste</b-form-checkbox>
+      <b-form-checkbox id="checkbox" value="electronics">Electronics</b-form-checkbox>
+    </b-form-checkbox-group>
+
+    <form id="submit-button" v-on:submit="addProfile">
+      <button type="submit" name="button">Complete Form</button>
+    </form>
+  </b-form-group>
+
+</b-tab>
+
+
+
+
+</b-tabs>
+<div class="text-center">
+  <b-button-group class="mt-2">
+    <b-button @click="tabIndex--">Previous</b-button>
+    <b-button @click="tabIndex++">Next</b-button>
+  </b-button-group>
 
 </div>
 </div>
@@ -170,11 +157,11 @@ export default {
 
     getTotalDeviceTime(){
       // Need to sort this function for calculating total device time use.
-      console.log(this.devices);
+
       const total = this.devices.reduce( (runningTotal, device) => {
         return runningTotal += device
       }, 0)
-      return total
+      return parseInt(total)
     }
 
 
@@ -189,7 +176,9 @@ export default {
   /* width: 80%; */
 }
 
-
+.nav-item {
+  color: white;
+}
 
 form {
   width: 75%;
@@ -197,6 +186,8 @@ form {
   background: rgba(255, 255, 255, 0.7);
   padding: 20px;
   margin-bottom: 40px;
+
+
 }
 
 h2 {
@@ -215,6 +206,7 @@ label {
 
 #details-form {
   border-radius: 15px;
+
 }
 
 #submit-button {
@@ -245,4 +237,5 @@ label {
 #devices{
   align: center;
 }
+
 </style>
