@@ -47,26 +47,26 @@
 
     <b-tab title="Devices">
       <h1>How long did you spend on your phone/devices today?</h1>
-      <select v-model="deviceTimeA" >
+      <select v-model="devices" >
         <option disabled value="">How long did you spend using your phone today?</option>
         <option value="1"> Less than 1 hour</option>
         <option value="1.5"> 1 to 2 hours </option>
         <option value="3"> 2-4 hours</option>
         <option value="4.5"> Over 4 hours</option>
       </select>
-      <select v-model="deviceTimeB" >
+      <select v-model="devices" >
         <option disabled value="">How long did you spend watching TV/Streaming?</option>
         <option value="1"> Less than 1 hour</option>
         <option value="1.5"> 1 to 2 hours </option>
         <option value="3"> 2-4 hours</option>
         <option value="4.5"> Over 4 hours</option>
       </select>
-      <select v-model="deviceTimeC" >
+      <select v-model="devices" >
         <option disabled value="">How long did you spend using other electrical devices?</option>
-        <option value=1> Less than 1 hour</option>
-        <option value=1.5> 1 to 2 hours </option>
-        <option value=3> 2-4 hours</option>
-        <option value=4.5> Over 4 hours</option>
+        <option value="1"> Less than 1 hour</option>
+        <option value="1.5"> 1 to 2 hours </option>
+        <option value="3"> 2-4 hours</option>
+        <option value="4.5"> Over 4 hours</option>
       </select>
 
       <!-- <h3>You spent a total of {{ getTotalTime() }} hours using devices and appliances today:</h3> -->
@@ -123,11 +123,9 @@ export default {
       food: "",
       recycling: [],
       purchases: [],
-      devices: 0,
+      devices: []
 
-      deviceTimeA: 0,
-      deviceTimeB: 0,
-      deviceTimeC: 0
+
 
     }
   },
