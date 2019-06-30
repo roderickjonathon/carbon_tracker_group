@@ -5,8 +5,8 @@
     <b-tabs justified fill content-class="mt-3">
 
       <b-tab v-model="tabIndex"   title="Personal Details" active >
-        <b-form-input v-model="name" placeholder="Enter your name"></b-form-input>
-        <b-form-input v-model="email" placeholder="Enter your email"></b-form-input>
+        <b-form-input v-model="name" placeholder="Enter your name" required></b-form-input>
+        <b-form-input v-model="email" placeholder="Enter your email" required></b-form-input>
       </b-tab>
 
       <b-tab  title="Travel Habits">
@@ -37,7 +37,7 @@
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
           <b-form-checkbox value="clothes">New Clothes</b-form-checkbox>
           <b-form-checkbox value="ready_meals">Ready-made meals/sandwhiches</b-form-checkbox>
-          <b-form-checkbox value="bottled_water">Bottles Water</b-form-checkbox>
+          <b-form-checkbox value="bottled_water">Bottled Water</b-form-checkbox>
           <b-form-checkbox value="barista_coffee">Barista Coffee</b-form-checkbox>
         </b-form-checkbox-group>
 
@@ -46,6 +46,7 @@
 
 
     <b-tab title="Devices">
+      <h1>How long did you spend on your phone/devices today?</h1>
       <select v-model="deviceTimeA" >
         <option disabled value="">How long did you spend using your phone today?</option>
         <option value="1"> Less than 1 hour</option>
@@ -82,8 +83,8 @@
         </b-form-checkbox-group>
 
         <form id="submit-button" v-on:submit="addProfile">
-        <button type="submit" name="button">Complete Form</button>
-      </form>
+          <button type="submit" name="button">Complete Form</button>
+        </form>
       </b-form-group>
 
     </b-tab>
@@ -105,7 +106,8 @@
 
 <script>
 import { eventBus } from '@/main';
-import { TabsPlugin } from 'bootstrap-vue'
+import { TabsPlugin } from 'bootstrap-vue';
+import { BTable } from 'bootstrap-vue';
 
 
 

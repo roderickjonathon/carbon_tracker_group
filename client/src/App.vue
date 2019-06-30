@@ -5,7 +5,8 @@
 
     </nav>
     <profiles-form/>
-    <!-- <profiles-list :profiles="profiles"/> -->
+    <profiles-list :profiles="profiles"/>
+    <leaderboard :profiles="profiles"/>
 
   </div>
 </template>
@@ -14,6 +15,7 @@
 
 import ProfilesList from './components/ProfilesList.vue'
 import ProfilesForm from './components/ProfilesForm.vue'
+import Leaderboard from './components/Leaderboard.vue'
 import { eventBus } from './main.js'
 
 
@@ -27,7 +29,8 @@ export default {
   },
   components: {
     'profiles-list': ProfilesList,
-    'profiles-form': ProfilesForm
+    'profiles-form': ProfilesForm,
+    'leaderboard': Leaderboard
   },
   mounted(){
     fetch('http://localhost:3000/api/profiles')

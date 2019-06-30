@@ -6,21 +6,19 @@
         <p>{{ profile.email}}</p>
         <p>{{ profile.travel}}</p>
         <p>{{ profile.food}}</p>
-        <p>{{ profile.recycling}}</p>
-
+        <p>{{ profile.recycling.join("  ")}}</p>
         <button type="button" v-on:click="deleteProfile (profile)">Delete Profile</button>
-
-        <!-- <button v-if="profile.checked_in" v-on:click="handleChange(profile)">Check Out</button> -->
-
         <button v-if="!profile.checked_in" v-on:click="handleChange(profile)">Create Carbon Score</button>
 
       </div>
     </ul>
+
   </div>
 </template>
 
 <script>
 import { eventBus } from '@/main'
+
 
 export default {
   name: "profiles-list",
@@ -65,6 +63,9 @@ export default {
   background-color: white;
   display: inline-grid;
 }
+
+
+
 
 
 
