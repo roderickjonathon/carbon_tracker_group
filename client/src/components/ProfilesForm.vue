@@ -104,7 +104,7 @@
 <script>
 import { eventBus } from '@/main';
 import { TabsPlugin } from 'bootstrap-vue';
-import { BTable } from 'bootstrap-vue';
+
 
 
 
@@ -176,9 +176,6 @@ export default {
   /* width: 80%; */
 }
 
-.nav-item {
-  color: white;
-}
 
 form {
   width: 75%;

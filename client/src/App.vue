@@ -5,8 +5,8 @@
 
     </nav>
     <profiles-form/>
-    <profiles-list :profiles="profiles"/>
-    <!-- <leaderboard :profiles="profiles"/> -->
+    <!-- <profiles-list :profiles="profiles"/> -->
+    <leaderboard :profiles="profiles"/>
 
   </div>
 </template>
