@@ -8,7 +8,7 @@
         <p>{{ profile.food}}</p>
         <p>{{ profile.recycling.join("  ")}}</p>
         <button type="button" v-on:click="deleteProfile (profile)">Delete Profile</button>
-        <button v-if="!profile.checked_in" v-on:click="handleChange(profile)">Create Carbon Score</button>
+        <button type="button">Create Carbon Score</button>
 
       </div>
     </ul>

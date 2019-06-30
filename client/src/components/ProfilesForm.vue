@@ -2,14 +2,14 @@
   <div class="big-form">
 
     <!-- This is the form for getting info from user -->
-    <b-tabs justified fill content-class="mt-3">
+    <b-tabs v-model="tabIndex"  justified fill content-class="mt-3">
 
-      <b-tab v-model="tabIndex"   title="Personal Details" active >
+      <b-tab  title="Personal Details" active >
         <b-form-input v-model="name" placeholder="Enter your name" required></b-form-input>
         <b-form-input v-model="email" placeholder="Enter your email" required></b-form-input>
       </b-tab>
 
-      <b-tab  title="Travel Habits">
+      <b-tab title="Travel Habits">
         <h2>So {{name}}, How did you travel to CodeClan today?</h2>
 
         <select v-model="travel" >
@@ -23,11 +23,13 @@
     </b-tab>
 
     <b-tab title="Dietry">
-      <b-form-group label="Choose a diet type:">
-        <b-form-radio v-model="food" name="some-radios" value="vegatarian">Vegetarian</b-form-radio>
-        <b-form-radio v-model="food" name="some-radios" value="vegan">Vegan</b-form-radio>
-        <b-form-radio v-model="food" name="some-radios" value="meat">Meat Eater</b-form-radio>
-        <b-form-radio v-model="food" name="some-radios" value="pescetarian">Pescetarian</b-form-radio>
+      <b-form-group id="devices-question" label="Choose a diet type:">
+        <b-form-radio-group buttons>
+          <b-form-radio v-model="food" name="some-radios" value="vegatarian">Vegetarian</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="vegan">Vegan</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="meat">Meat Eater</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="pescetarian">Pescetarian</b-form-radio>
+        </b-form-radio-group>
       </b-form-group>
     </b-tab>
 
@@ -46,30 +48,34 @@
 
 
     <b-tab title="Devices">
-      <h1>How long did you spend on your phone/devices today?</h1>
-      <select v-model="devices" >
-        <option disabled value="">How long did you spend using your phone today?</option>
+      <p id="devices-question">How long did you spend on your phone/devices today?</p>
+      <ul>
+        <label for="phone">Phone</label>
+      <ul><select name="phone" v-model="devices" >
+        <option disabled value="">Phone</option>
         <option value="1"> Less than 1 hour</option>
         <option value="1.5"> 1 to 2 hours </option>
         <option value="3"> 2-4 hours</option>
         <option value="4.5"> Over 4 hours</option>
-      </select>
-      <select v-model="devices" >
-        <option disabled value="">How long did you spend watching TV/Streaming?</option>
+      </select></ul>
+      <label for="streaming">TV/Streaming</label>
+      <ul><select name="streaming" v-model="devices" >
+        <option disabled value="">Tv/Streaming</option>
         <option value="1"> Less than 1 hour</option>
         <option value="1.5"> 1 to 2 hours </option>
         <option value="3"> 2-4 hours</option>
         <option value="4.5"> Over 4 hours</option>
-      </select>
-      <select v-model="devices" >
-        <option disabled value="">How long did you spend using other electrical devices?</option>
+      </select></ul>
+      <label for="other">Other Devices</label>
+    <ul>  <select name="other" v-model="devices" >
+        <option disabled value="">Other Devices</option>
         <option value="1"> Less than 1 hour</option>
         <option value="1.5"> 1 to 2 hours </option>
         <option value="3"> 2-4 hours</option>
         <option value="4.5"> Over 4 hours</option>
-      </select>
-
-      <!-- <h3>You spent a total of {{ getTotalTime() }} hours using devices and appliances today:</h3> -->
+      </select></ul>
+    </ul>
+      <h3>You spent a total of {{ getTotalDeviceTime() }} hours using devices and appliances today:</h3>
       <!-- The above function isn't working so we'll need to sort that! -->
     </b-tab>
 
@@ -95,8 +101,8 @@
   </b-tabs>
   <div class="text-center">
     <b-button-group class="mt-2">
-      <b-button v-on:click="tabIndex--">Previous</b-button>
-      <b-button v-on:click="tabIndex++">Next</b-button>
+      <b-button @click="tabIndex--">Previous</b-button>
+      <b-button @click="tabIndex++">Next</b-button>
     </b-button-group>
     <!-- These buttons are supposed to flip  between the tabs but had no luck fixing them yet, doing exactly what the docs say! -->
   </div>
@@ -160,6 +166,10 @@ export default {
 
     getTotalDeviceTime(){
       // Need to sort this function for calculating total device time use.
+      const total = this.devices.reduce( (runningTotal, device) => {
+        return runningTotal += device
+      }, 0)
+      return total
     }
 
 
@@ -213,5 +223,9 @@ label {
 
 #checkbox {
   font-size: 300%;
+}
+
+#devices-question {
+  font-size: 200%;
 }
 </style>
