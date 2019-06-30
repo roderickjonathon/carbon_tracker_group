@@ -1,7 +1,7 @@
 use carbon_counter;
 db.dropDatabase();
 
-db.profiles.insertMany([
+db.profiles.insert([
   {
     name: "Jonny Circles",
     email: "roderickjgillies@gmail.com",
