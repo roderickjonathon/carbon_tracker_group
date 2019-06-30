@@ -195,6 +195,7 @@ h2 {
 label {
   min-width: 100px;
   display: inline-block;
+
 }
 
 .formWrap {
@@ -207,12 +208,13 @@ label {
 }
 
 #submit-button {
-  background-color:  #535657;
-  font-size: 50%;
+  background-color:  #53565700;
+  font-size: 80%;
 }
 
 #checkbox-label {
   font-size: 200%;
+    color: white;
 }
 
 #checkbox {
@@ -221,10 +223,12 @@ label {
 
 #devices-question {
   font-size: 200%;
+  color: white;
 }
 
 #travel-question {
   font-size: 200%;
+    color: white;
 }
 
 #big-form {

@@ -14,7 +14,7 @@ export default {
 
     name: "leaderboard",
     props:["profiles"],
-    
+
 
 
     methods: {
