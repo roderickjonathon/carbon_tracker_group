@@ -4,13 +4,16 @@
       <img src="@/assets/images/logo_earth.png" alt="">
 
     </nav>
+    <router-view id="view"></router-view>
+
+<!--
     <profiles-form/>
     <!-- <profiles-list :profiles="profiles"/> -->
     <!-- <leaderboard :profiles="profiles"/> -->
 
   </div>
 </template>
-<title>C02 Tracker</title>
+
 <script>
 
 import ProfilesList from './components/ProfilesList.vue'
