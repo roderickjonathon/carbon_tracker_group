@@ -162,6 +162,11 @@ export default {
         return runningTotal += device
       }, 0)
       return parseInt(total)
+    },
+
+    getTotalByTab(){
+      
+
     }
 
 

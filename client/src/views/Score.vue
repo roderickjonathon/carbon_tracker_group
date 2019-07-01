@@ -1,7 +1,7 @@
 <template>
   <div id="">
-    <profiles-list title='Score' />
-    <!-- <leaderboard title='Leaderboard'/> -->
+    <profiles-list :profiles='profiles' title='Score' />
+    <leaderboard :profiles='profiles' title='Leaderboard'/>
   </div>
 </template>
 <script>
@@ -10,6 +10,7 @@ import ProfilesList from '@/components/ProfilesList';
 
 
 export default {
+  props: ['profiles'],
   components: {
     "profiles-list": ProfilesList,
     "leaderboard": Leaderboard

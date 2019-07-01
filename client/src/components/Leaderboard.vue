@@ -1,10 +1,8 @@
 <template lang="html">
   <div>
-<<<<<<< HEAD
-    <b-table id="leaderboar" striped hover :items="profiles"></b-table>
-=======
+
     <b-table id="leaderboard" striped hover :items="profiles"></b-table>
->>>>>>> jonny
+
   </div>
 </template>
 
