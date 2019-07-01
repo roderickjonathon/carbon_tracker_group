@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="wrapper">
     <ul>
-      <div id="grid" :profiles="profiles" v-for="profile in profiles">
+      <div id="grid" v-for="profile in profiles">
         <p>{{ profile.name }}</p>
         <p>{{ profile.email}}</p>
         <p>{{ profile.travel}}</p>
