@@ -10,10 +10,6 @@
     <router-view :profiles="profiles" id="view"></router-view>
 
 
-    <!-- <profiles-form/> -->
-    <!-- <profiles-list :profiles="profiles"/> -->
-    <!-- <leaderboard :profiles="profiles"/> -->
-
   </div>
 </template>
 

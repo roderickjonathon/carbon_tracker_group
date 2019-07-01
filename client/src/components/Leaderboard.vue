@@ -138,6 +138,10 @@ export default {
   color: white;
 }
 
+#SvgjsSvg2450 {
+  color: white;
+}
+
 
 
 
