@@ -1,6 +1,6 @@
 <template>
   <div id="">
-    <ProfilesForm title='Calculate' />
+    <profiles-form title='Calculate' />
   </div>
 </template>
 <script>
@@ -8,7 +8,7 @@ import ProfilesForm from '@/components/ProfilesForm';
 
 export default {
   components: {
-    ProfilesForm
+    'profiles-form':ProfilesForm
   }
 }
 </script>
