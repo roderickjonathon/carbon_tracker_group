@@ -350,6 +350,7 @@ li {
 #big-form {
   align: center;
     color: white;
+    margin-top: 10%;
 }
 
 #devices{

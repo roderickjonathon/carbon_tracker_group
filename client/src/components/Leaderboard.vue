@@ -2,7 +2,9 @@
   <div>
 
     <!-- <b-table id="leaderboard" striped hover :items="profiles"></b-table> -->
-    <li id="leaderboard" v-for="profile in profiles">{{ profile.name}} {{profile.totalCarbon}}</li>
+    <ul id="leaderboard" v-for="profile in profiles"><h1> Name: {{ profile.name}}</h1>
+                                                    <p>  Footprint: {{profile.totalCarbon}}KG</p>
+                                                  </ul>
   </div>
 </template>
 
@@ -62,6 +64,8 @@ export default {
 #leaderboard {
   color: white;
 }
+
+
 
 
 </style>
