@@ -2,11 +2,11 @@
   <div id="app">
     <nav>
       <router-link :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
-      <router-link :to="{ name: 'score'}">See How You Did Today</router-link>
+      <router-link :to="{ name: 'score'}">See How You Did Toda</router-link>
     </nav>
     <router-view id="view"></router-view>
 
-<!-- 
+<!--
     <profiles-form/>
     <profiles-list :profiles="profiles"/>
     <leaderboard :profiles="profiles"/> -->
