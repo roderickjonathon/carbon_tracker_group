@@ -82,7 +82,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 5%;
   background-color: #53565700;
   width: 80%;
   margin-right: auto;
@@ -113,6 +113,7 @@ body {
   font-weight: bold;
   font-size: 180%;
   padding: 5vh 5vw;
+  text-decoration: underline;
 }
 
 

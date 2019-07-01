@@ -28,7 +28,7 @@
           <option value="8">6-8 Miles</option>
         </select>
 
-      <p id="travel-question">You emitted {{ getTotalTravel() }}KG of carbon</p>
+      <!-- <p id="travel-question">You emitted {{ getTotalTravel() }}KG of carbon</p> -->
     </b-tab>
 
     <b-tab title="Dietry">
@@ -40,7 +40,7 @@
           <b-form-radio v-model="food" name="some-radios" value="4">Pescetarian</b-form-radio>
         </b-form-radio-group>
       </b-form-group>
-      <p id="travel-question">{{ getTotalFood()}}KG carbon </p>
+      <!-- <p id="travel-question">{{ getTotalFood()}}KG carbon </p> -->
     </b-tab>
 
     <b-tab title="Purchases">
@@ -55,7 +55,7 @@
         </b-form-checkbox-group>
 
       </b-form-group>
-      <p id="travel-question"> {{getTotalPurchases()}}KG of carbon</p>
+      <!-- <p id="travel-question"> {{getTotalPurchases()}}KG of carbon</p> -->
     </b-tab>
 
     <b-tab id="devices" title="Devices">
@@ -72,7 +72,7 @@
             <b-form-checkbox v-model="devices" name="M" value="4">4+ hours</b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
-        <p id='travel-question'>{{getTotalDevices()}}KG of Carbon</p>
+        <!-- <p id='travel-question'>{{getTotalDevices()}}KG of Carbon</p> -->
       </div>
 
 
@@ -97,7 +97,7 @@
           <button type="submit" name="button">Complete Form</button>
         </form>
       </b-form-group>
-      <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p>
+      <!-- <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p> -->
       <p>{{this.getTotalCarbon()}}</p>
     </b-tab>
 
@@ -350,7 +350,7 @@ li {
 #big-form {
   align: center;
     color: white;
-    margin-top: 10%;
+    margin-top: 8%;
 }
 
 #devices{
