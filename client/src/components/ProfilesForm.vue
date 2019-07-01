@@ -19,30 +19,38 @@
           <option value="cycle">Cycle/Walk</option>
           <option value="car">Car/Taxi</option>
         </select>
-      </form>
-      {{ getTotalTravel() }}
+        <select v-model="distance" >
+          <option disabled value="">How far did you travel?</option>
+          <option value="1">0-1 Miles</option>
+          <option value="2">1-2 Miles</option>
+          <option value="4">2-4 Miles</option>
+          <option value="6">4-6 Miles</option>
+          <option value="8">6-8 Miles</option>
+        </select>
+
+      <p id="travel-question">You emitted {{ getTotalTravel() }}KG of carbon</p>
     </b-tab>
 
     <b-tab title="Dietry">
       <b-form-group id="devices-question" label="Choose a diet type:">
         <b-form-radio-group buttons>
-          <b-form-radio v-model="food" name="some-radios" value="vegetarian">Vegetarian</b-form-radio>
-          <b-form-radio v-model="food" name="some-radios" value="vegan">Vegan</b-form-radio>
-          <b-form-radio v-model="food" name="some-radios" value="meat">Meat Eater</b-form-radio>
-          <b-form-radio v-model="food" name="some-radios" value="pescetarian">Pescetarian</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="1">Vegetarian</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="2">Vegan</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="3">Meat Eater</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="4">Pescetarian</b-form-radio>
         </b-form-radio-group>
       </b-form-group>
-      {{ getTotalFood()}}
+      <p id="travel-question">{{ getTotalFood()}}KG carbon </p>
     </b-tab>
 
     <b-tab title="Purchases">
 
       <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
-          <b-form-checkbox value="clothes">New Clothes</b-form-checkbox>
-          <b-form-checkbox value="ready_meals">Ready-made meals/sandwhiches</b-form-checkbox>
-          <b-form-checkbox value="bottled_water">Bottled Water</b-form-checkbox>
-          <b-form-checkbox value="barista_coffee">Barista Coffee</b-form-checkbox>
+          <b-form-checkbox value="1">New Clothes</b-form-checkbox>
+          <b-form-checkbox value="2">Ready-made meals/sandwhiches</b-form-checkbox>
+          <b-form-checkbox value="3">Bottled Water</b-form-checkbox>
+          <b-form-checkbox value="4">Barista Coffee</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
@@ -76,10 +84,10 @@
     <b-tab title="Recycling">
       <b-form-group id="checkbox-label" label="What do you recycle?">
         <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
-          <b-form-checkbox id="checkbox" value="plastic">Plastic</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="glass">Glass</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="food waste">Food Waste</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="electronics">Electronics</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-1">Plastic</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-2">Glass</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-3">Food Waste</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-4">Electronics</b-form-checkbox>
         </b-form-checkbox-group>
 
         <form id="submit-button" v-on:submit="addProfile">
@@ -119,6 +127,7 @@ export default {
       name: "",
       email: "",
       travel: "",
+      distance: 0,
       food: "",
       recycling: [],
       purchases: [],
@@ -134,6 +143,7 @@ export default {
         name: this.name,
         email: this.email,
         travel: this.travel,
+        distance: this.distance,
         food: this.food,
         recycling: this.recycling,
         purchases: this.purchases,
@@ -151,6 +161,7 @@ export default {
       this.name = ""
       this.email = ""
       this.travel = ""
+      this.distance = ""
       this.food = ""
       this.recycling = ""
       this.purchases = ""
@@ -168,14 +179,17 @@ export default {
 
     getTotalFood(){
       let foodTotal = 0
-      if (this.food == "vegan") {
+      if (this.food == "1") {
         foodTotal += 1
       }
-      if (this.food == "vegetarian"){
+      if (this.food == "2"){
         foodTotal += 2
       }
-      if (this.food == "meat"){
+      if (this.food == "3"){
         foodTotal += 3
+      }
+      if (this.food == "4"){
+        foodTotal += 4
       }
       return foodTotal
     },
@@ -194,7 +208,7 @@ export default {
       if (this.travel == "car"){
         travelTotal += 3
       }
-      return travelTotal
+      return travelTotal * this.distance
     }
 
     // getTotalPurchases(){
