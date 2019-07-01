@@ -53,10 +53,11 @@ export default {
         },
         xaxis: {
           categories: this.arrayOfNames(),
-          // labels: {
-          //   hideOverlappingLabels: true,
-          //   rotate: 90,
-          //   fontSize:'400%'
+          labels: {
+            hideOverlappingLabels: true,
+            rotate: 90,
+            fontSize:'400%'
+          },
           style: {
             labels:{
             colors: this.colors,
@@ -136,7 +137,7 @@ methods: {
 
 
 #leaderboard {
-  color: white;
+  /* color: white; */
   border: solid 5px;
   border-color: white;
   border-radius: 25px;
