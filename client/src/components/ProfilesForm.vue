@@ -268,7 +268,7 @@ export default {
       runningTotalCarbon += this.getTotalFood()
       runningTotalCarbon += this.getTotalRecycling()
       runningTotalCarbon += this.getTotalDevices()
-      return runningTotalCarbon
+      return runningTotalCarbon / 1000
 
     }
 
