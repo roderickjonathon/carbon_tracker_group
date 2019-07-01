@@ -223,12 +223,14 @@ label {
 
 #devices-question {
   font-size: 200%;
+  font-weight: bold;
   color: white;
 }
 
 #travel-question {
   font-size: 200%;
-    color: white;
+  font-weight: bold;
+  color: white;
 }
 
 #big-form {
