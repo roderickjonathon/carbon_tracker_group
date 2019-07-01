@@ -53,6 +53,7 @@
           <b-form-checkbox value=100 >Bottled Water</b-form-checkbox>
           <b-form-checkbox value=200 >Barista Coffee</b-form-checkbox>
           <b-form-checkbox value=145150 >Attended Big Event</b-form-checkbox>
+          <b-form-checkbox value=350 >Bottle of Fizzy Juice</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>

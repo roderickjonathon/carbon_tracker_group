@@ -60,7 +60,7 @@ export default {
           categories: this.arrayOfNames(),
           labels: {
             styles:{
-              colors: 'white',
+              colors: this.colors,
               fontSize:'40px'
             }
           },
@@ -103,8 +103,8 @@ export default {
       const result = this.profiles.map( (profile) => {
         return profile.totalCarbon
       })
-      result.sort()
-      return result.reverse()
+      return result.sort()
+      // return result.reverse()
     },
 
     arrayOfNames(){
