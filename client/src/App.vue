@@ -107,61 +107,6 @@ body {
 
 }
 
-#devices___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-
-#__BVID__14___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-
-#__BVID__10___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-
-#__BVID__16___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-#__BVID__24___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-
-}
-#__BVID__42___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-#__BVID__77___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-
-#__BVID__69___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-
-#__BVID__63___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-#__BVID__67___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-
-}
-#__BVID__95___BV_tab_button__{
-  color: white;
-  font-weight: bold;
-}
-
-.a {
-    color: white;
-}
 
 #link {
   color: white;
