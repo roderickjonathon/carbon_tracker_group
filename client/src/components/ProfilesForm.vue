@@ -2,7 +2,7 @@
   <div id="big-form">
 
     <!-- This is the form for getting info from user -->
-    <b-tabs v-model="tabIndex"  justified fill content-class="mt-3">
+    <b-tabs id="tabs" v-model="tabIndex"  justified fill content-class="mt-3">
 
       <b-tab  title="Personal Details" active >
         <b-form-input v-model="name" placeholder="Enter your name" required></b-form-input>
@@ -14,36 +14,48 @@
 
         <select v-model="travel" >
           <option disabled value="">Select a mode of transport...</option>
-          <option>Bus</option>
-          <option>Train</option>
-          <option>Cycle/Walk</option>
-          <option>Car/Taxi</option>
+          <option value="bus">Bus</option>
+          <option value="train">Train</option>
+          <option value="cycle">Cycle/Walk</option>
+          <option value="car">Car/Taxi</option>
         </select>
-      </form>
+        <select v-model="distance" >
+          <option disabled value="How far did you travel?">How far did you travel...</option>
+          <option value="1">0-1 Miles</option>
+          <option value="2">1-2 Miles</option>
+          <option value="4">2-4 Miles</option>
+          <option value="6">4-6 Miles</option>
+          <option value="8">6-8 Miles</option>
+        </select>
+
+      <p id="travel-question">You emitted {{ getTotalTravel() }}KG of carbon</p>
     </b-tab>
 
     <b-tab title="Dietry">
       <b-form-group id="devices-question" label="Choose a diet type:">
         <b-form-radio-group buttons>
-          <b-form-radio v-model="food" name="some-radios" value="vegatarian">Vegetarian</b-form-radio>
-          <b-form-radio v-model="food" name="some-radios" value="vegan">Vegan</b-form-radio>
-          <b-form-radio v-model="food" name="some-radios" value="meat">Meat Eater</b-form-radio>
-          <b-form-radio v-model="food" name="some-radios" value="pescetarian">Pescetarian</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="1">Vegetarian</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="2">Vegan</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="3">Meat Eater</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="4">Pescetarian</b-form-radio>
         </b-form-radio-group>
       </b-form-group>
+      <p id="travel-question">{{ getTotalFood()}}KG carbon </p>
     </b-tab>
 
     <b-tab title="Purchases">
 
       <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
-          <b-form-checkbox value="clothes">New Clothes</b-form-checkbox>
-          <b-form-checkbox value="ready_meals">Ready-made meals/sandwhiches</b-form-checkbox>
-          <b-form-checkbox value="bottled_water">Bottled Water</b-form-checkbox>
-          <b-form-checkbox value="barista_coffee">Barista Coffee</b-form-checkbox>
+          <b-form-checkbox value=0 >None</b-form-checkbox>
+          <b-form-checkbox value=1 >New Clothes</b-form-checkbox>
+          <b-form-checkbox value=2 >Ready-made meals/sandwhiches</b-form-checkbox>
+          <b-form-checkbox value=3 >Bottled Water</b-form-checkbox>
+          <b-form-checkbox value=4 >Barista Coffee</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
+      <p id="travel-question"> {{getTotalPurchases()}}KG of carbon</p>
     </b-tab>
 
     <b-tab id="devices" title="Devices">
@@ -60,44 +72,46 @@
             <b-form-checkbox v-model="devices" name="M" value="4">4+ hours</b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
+        <p id='travel-question'>{{getTotalDevices()}}KG of Carbon</p>
       </div>
 
 
 
 
 
-</b-tab>
-
-<!-- The above function isn't working so we'll need to sort that! -->
-
-
-<b-tab title="Recycling">
-  <b-form-group id="checkbox-label" label="What do you recycle?">
-    <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
-      <b-form-checkbox id="checkbox" value="plastic">Plastic</b-form-checkbox>
-      <b-form-checkbox id="checkbox" value="glass">Glass</b-form-checkbox>
-      <b-form-checkbox id="checkbox" value="food waste">Food Waste</b-form-checkbox>
-      <b-form-checkbox id="checkbox" value="electronics">Electronics</b-form-checkbox>
-    </b-form-checkbox-group>
-
-    <form id="submit-button" v-on:submit="addProfile">
-      <button type="submit" name="button">Complete Form</button>
-    </form>
-  </b-form-group>
-
-</b-tab>
+    </b-tab>
 
 
 
 
-</b-tabs>
-<div class="text-center">
-  <b-button-group class="mt-2">
-    <b-button @click="tabIndex--">Previous</b-button>
-    <b-button @click="tabIndex++">Next</b-button>
-  </b-button-group>
+    <b-tab title="Recycling">
+      <b-form-group id="checkbox-label" label="What do you recycle?">
+        <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
+          <b-form-checkbox id="checkbox" value="-1">Plastic</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-2">Glass</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-3">Food Waste</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-4">Electronics</b-form-checkbox>
+        </b-form-checkbox-group>
 
-</div>
+        <form id="submit-button" v-on:submit="addProfile">
+          <button type="submit" name="button">Complete Form</button>
+        </form>
+      </b-form-group>
+      <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p>
+
+    </b-tab>
+
+
+
+
+  </b-tabs>
+  <div class="text-center">
+    <b-button-group class="mt-2">
+      <b-button @click="tabIndex--">Previous</b-button>
+      <b-button @click="tabIndex++">Next</b-button>
+    </b-button-group>
+
+  </div>
 </div>
 </template>
 
@@ -117,6 +131,7 @@ export default {
       name: "",
       email: "",
       travel: "",
+      distance: 0,
       food: "",
       recycling: [],
       purchases: [],
@@ -132,6 +147,7 @@ export default {
         name: this.name,
         email: this.email,
         travel: this.travel,
+        distance: this.distance,
         food: this.food,
         recycling: this.recycling,
         purchases: this.purchases,
@@ -149,20 +165,76 @@ export default {
       this.name = ""
       this.email = ""
       this.travel = ""
+      this.distance = ""
       this.food = ""
       this.recycling = ""
       this.purchases = ""
       this.devices = ""
     },
 
-    getTotalDeviceTime(){
+    getTotalDevices(){
       // Need to sort this function for calculating total device time use.
 
       const total = this.devices.reduce( (runningTotal, device) => {
-        return runningTotal += device
+        return runningTotal += Number(device)
       }, 0)
-      return parseInt(total)
+      return total
+    },
+
+    getTotalFood(){
+      let foodTotal = 0
+      if (this.food == "1" ) {
+        foodTotal += 1
+      }
+      if (this.food == "2"){
+        foodTotal += 2
+      }
+      if (this.food == "3"){
+        foodTotal += 3
+      }
+      if (this.food == "4"){
+        foodTotal += 4
+      }
+      return foodTotal
+    },
+
+
+    getTotalPurchases(){
+      let total = this.purchases.reduce((runningTotal, purchase) => {
+        return runningTotal += Number(purchase)
+      }, 0)
+      return total
+
+    },
+
+    getTotalRecycling(){
+      let total = this.recycling.reduce((runningTotal, item) => {
+        return runningTotal += Number(item)
+      }, 0)
+      return total
+
+    },
+
+    getTotalTravel(){
+      let travelTotal = 0
+      if (this.travel == "cycle"){
+        travelTotal += 0
+      }
+      if (this.travel == "train"){
+        travelTotal += 1
+      }
+      if (this.travel == "bus"){
+        travelTotal += 2
+      }
+      if (this.travel == "car"){
+        travelTotal += 3
+      }
+      return travelTotal * this.distance
     }
+
+
+
+
 
 
   }
@@ -202,6 +274,10 @@ label {
   margin-bottom: 10px;
 }
 
+#tabs {
+
+}
+
 #details-form {
   border-radius: 15px;
 
@@ -214,7 +290,7 @@ label {
 
 #checkbox-label {
   font-size: 200%;
-    color: white;
+  color: white;
 }
 
 #checkbox {
@@ -228,7 +304,7 @@ label {
 
 #travel-question {
   font-size: 200%;
-    color: white;
+  color: white;
 }
 
 #big-form {

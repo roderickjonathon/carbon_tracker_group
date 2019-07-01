@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <nav>
-      <img src="@/assets/images/logo_earth.png" alt="">
+      <img id='logo' src="@/assets/images/logo_earth.png" alt="">
+    </br>
+      <router-link :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
+      <router-link  :to="{ name: 'score'}">See How You Did Today</router-link>
 
     </nav>
     <router-view id="view"></router-view>
 
-<!--
-    <profiles-form/>
-     <profiles-list :profiles="profiles"/>
-    <leaderboard :profiles="profiles"/> -->
+
+    <!-- <profiles-form/> -->
+    <!-- <profiles-list :profiles="profiles"/> -->
+    <!-- <leaderboard :profiles="profiles"/> -->
 
   </div>
 </template>
@@ -103,7 +106,8 @@ body {
 
 }
 
-img {
+#logo {
+
 
 }
 

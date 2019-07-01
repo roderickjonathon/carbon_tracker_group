@@ -1,16 +1,19 @@
 <template>
   <div id="">
-    <ProfilesList title='Score' />
+    <profiles-list :profiles='profiles' title='Score' />
+    <leaderboard :profiles='profiles' title='Leaderboard'/>
   </div>
 </template>
 <script>
-// import Leaderboard from '@/components/Leaderboard';
+import Leaderboard from '@/components/Leaderboard';
 import ProfilesList from '@/components/ProfilesList';
 
 
 export default {
+  props: ['profiles'],
   components: {
-    ProfilesList
+    "profiles-list": ProfilesList,
+    "leaderboard": Leaderboard
   }
 }
 </script>
