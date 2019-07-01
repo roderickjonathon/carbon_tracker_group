@@ -1,52 +1,116 @@
 <template lang="html">
   <div>
+    <div>
 
-    <b-table id="leaderboard" striped hover :items="profiles"></b-table>
+      <apexcharts id="leaderboard" width="500" type="bar" :options="chartOptions" :series="series"></apexcharts>
+    </div>
+
+
 
   </div>
 </template>
 
 <script>
 import { BTable } from 'bootstrap-vue';
+import ApexCharts from 'apexcharts';
+import VueApexCharts from 'vue-apexcharts'
 
 
 export default {
 
 
 
-    name: "leaderboard",
-    props:["profiles"],
+  name: "leaderboard",
+  components:{
+    "apexcharts": VueApexCharts
+  },
+  props:["profiles"],
+  data() {
+    return {
+      colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'],
+      chartOptions: {
+          chart: {
+            id: 'vuechart-example'
+          },
 
+          plotOptions: {
+            bar: {
+              horizontal: true
+            }
+          },
 
+          dataLabels: {
+            enabled: true
+          },
+          xaxis: {
+            categories: this.arrayOfNames(),
+            labels: {
+               // hideOverlappingLabels: true,
+                // rotate: 90
+             },
+            style: {
 
-    methods: {
-      deleteProfile(targetProfile){
-        const id=targetProfile._id
-        fetch("http://localhost:3000/api/profiles/" + id, {
-          method: "DELETE"
-        })
-        .then((res) => res.json())
-        .then((res) => {
-          eventBus.$emit("delete-profile", id)
-        })
-      },
+                fontSize: '200%',
+                colors: this.colors
 
-      handleChange(profile){
-        const edited = {
-          checked_in: !profile.checked_in
-        }
-        const id = profile._id
-        fetch("http://localhost:3000/api/profiles/" + id, {
-          method: "PUT",
-          body: JSON.stringify(edited),
-          headers: { 'Content-Type': 'application/json'}
-        })
-        .then((res) => res.json())
-        .then((res) => {
-          eventBus.$emit("update-profile", id)
-        })
+            }
+       }
+
+          }
+        ,
+        series: [{
+
+          data: this.arrayOfFootprints()
+        }]
       }
+    },
+
+
+  methods: {
+    deleteProfile(targetProfile){
+      const id=targetProfile._id
+      fetch("http://localhost:3000/api/profiles/" + id, {
+        method: "DELETE"
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        eventBus.$emit("delete-profile", id)
+      })
+    },
+
+    handleChange(profile){
+      const edited = {
+        checked_in: !profile.checked_in
+      }
+      const id = profile._id
+      fetch("http://localhost:3000/api/profiles/" + id, {
+        method: "PUT",
+        body: JSON.stringify(edited),
+        headers: { 'Content-Type': 'application/json'}
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        eventBus.$emit("update-profile", id)
+      })
+    },
+
+    arrayOfFootprints(){
+      const result = this.profiles.map( (profile) => {
+        return profile.totalCarbon
+      })
+       result.sort()
+       return result.reverse()
+    },
+
+    arrayOfNames(){
+      const result = this.profiles.map( (profile) => {
+        return profile.name
+      })
+      return result
     }
+
+
+  }
 
 
 }
@@ -58,38 +122,23 @@ export default {
 
 <style lang="css" scoped>
 
-table {
-  font-family: 'Open Sans', sans-serif;
-  width: 750px;
-  border-collapse: collapse;
-  border: 3px solid #44475C;
-  margin: 10px 10px 0 10px;
-}
-
-table th {
-  text-transform: uppercase;
-  text-align: left;
-  background: #44475C;
-  color: #FFF;
-  padding: 8px;
-  min-width: 30px;
-}
-
-table td {
-  text-align: left;
-  padding: 8px;
-  border-right: 2px solid #7D82A8;
-}
-table td:last-child {
-  border-right: none;
-}
-table tbody tr:nth-child(2n) td {
-  background: #D4D8F9;
-}
 
 #leaderboard {
   color: white;
+  border: solid 5px;
+  border-color: white;
+  border-radius: 25px;
+  font-size: 100%;
+
 }
+
+
+
+.graph-font {
+  color: white;
+}
+
+
 
 
 </style>

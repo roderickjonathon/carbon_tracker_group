@@ -12,7 +12,7 @@
         <button type="button" v-on:click="deleteProfile (profile)">Delete Profile</button>
         <button type="button">Create Carbon Score</button>
 
-      </div>
+      </div> -->
     </ul>
 
   </div>

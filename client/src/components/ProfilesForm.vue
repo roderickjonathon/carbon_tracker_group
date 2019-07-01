@@ -2,7 +2,7 @@
   <div id="big-form">
 
     <!-- This is the form for getting info from user -->
-    <b-tabs id="tabs" v-model="tabIndex"  justified fill content-class="mt-3">
+    <b-tabs class="tabs" v-model="tabIndex"  justified fill content-class="mt-3" >
 
       <b-tab  title="Personal Details" active >
         <b-form-input v-model="name" placeholder="Enter your name" required></b-form-input>
@@ -28,19 +28,19 @@
           <option value="8">6-8 Miles</option>
         </select>
 
-      <p id="travel-question">You emitted {{ getTotalTravel() }}KG of carbon</p>
+      <!-- <p id="travel-question">You emitted {{ getTotalTravel() }}KG of carbon</p> -->
     </b-tab>
 
     <b-tab title="Dietry">
       <b-form-group id="devices-question" label="Choose a diet type:">
-        <b-form-radio-group buttons>
+        <b-form-radio-group id="dietry options" buttons>
           <b-form-radio v-model="food" name="some-radios" value="1">Vegetarian</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="2">Vegan</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="3">Meat Eater</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="4">Pescetarian</b-form-radio>
         </b-form-radio-group>
       </b-form-group>
-      <p id="travel-question">{{ getTotalFood()}}KG carbon </p>
+      <!-- <p id="travel-question">{{ getTotalFood()}}KG carbon </p> -->
     </b-tab>
 
     <b-tab title="Purchases">
@@ -48,14 +48,15 @@
       <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
           <b-form-checkbox value=0 >None</b-form-checkbox>
-          <b-form-checkbox value=1 >New Clothes</b-form-checkbox>
-          <b-form-checkbox value=2 >Ready-made meals/sandwhiches</b-form-checkbox>
-          <b-form-checkbox value=3 >Bottled Water</b-form-checkbox>
-          <b-form-checkbox value=4 >Barista Coffee</b-form-checkbox>
+          <b-form-checkbox value=10 >Buy New Clothes</b-form-checkbox>
+          <b-form-checkbox value=20 >Smoke Cigarettes</b-form-checkbox>
+          <b-form-checkbox value=100 >Bottled Water</b-form-checkbox>
+          <b-form-checkbox value=200 >Barista Coffee</b-form-checkbox>
+          <b-form-checkbox value=145150 >Attend Event</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
-      <p id="travel-question"> {{getTotalPurchases()}}KG of carbon</p>
+      <!-- <p id="travel-question"> {{getTotalPurchases()}}KG of carbon</p> -->
     </b-tab>
 
     <b-tab id="devices" title="Devices">
@@ -72,7 +73,7 @@
             <b-form-checkbox v-model="devices" name="M" value="4">4+ hours</b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
-        <p id='travel-question'>{{getTotalDevices()}}KG of Carbon</p>
+        <!-- <p id='travel-question'>{{getTotalDevices()}}KG of Carbon</p> -->
       </div>
 
 
@@ -87,17 +88,19 @@
     <b-tab title="Recycling">
       <b-form-group id="checkbox-label" label="What do you recycle?">
         <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
-          <b-form-checkbox id="checkbox" value="-1">Plastic</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="-2">Glass</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="-3">Food Waste</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="-4">Electronics</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-128">Paper</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-17">Glass</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-30">Plastic</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-214">Aluminium</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-21">Wood</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-90">Food</b-form-checkbox>
         </b-form-checkbox-group>
 
         <form id="submit-button" v-on:submit="addProfile">
-          <button type="submit" name="button">Complete Form</button>
+          <button v-on:click="tabIndex = 0" type="submit" name="button">Complete Form</button>
         </form>
       </b-form-group>
-      <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p>
+      <!-- <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p> -->
 
     </b-tab>
 
@@ -135,7 +138,9 @@ export default {
       food: "",
       recycling: [],
       purchases: [],
-      devices: []
+      devices: 0,
+      totalCarbon: 0
+
 
 
 
@@ -151,7 +156,8 @@ export default {
         food: this.getTotalFood(),
         recycling: this.getTotalRecycling(),
         purchases: this.getTotalPurchases(),
-        devices: this.getTotalDevices()
+        devices: this.getTotalDevices(),
+        totalCarbon: this.getTotalCarbon()
       }
       fetch("http://localhost:3000/api/profiles", {
         method: "POST",
@@ -165,35 +171,57 @@ export default {
       this.name = ""
       this.email = ""
       this.travel = ""
-      this.distance = ""
+      this.distance = 0
       this.food = ""
-      this.recycling = ""
-      this.purchases = ""
-      this.devices = ""
+      this.recycling = []
+      this.purchases = []
+      this.devices = 0
+      this.totalCarbon = 0
+
     },
+
+    // getTotalDevices(){
+    //
+    //
+    //   const total = this.devices.reduce( (runningTotal, device) => {
+    //     return runningTotal += Number(device)
+    //   }, 0)
+    //   return total
+    // },
 
     getTotalDevices(){
-      // Need to sort this function for calculating total device time use.
-
-      const total = this.devices.reduce( (runningTotal, device) => {
-        return runningTotal += Number(device)
-      }, 0)
-      return total
+      let devicesTotal = 0
+      if (this.devices == "1" ) {
+        devicesTotal += 3561
+      }
+      if (this.devices == "2"){
+        devicesTotal += 7122
+      }
+      if (this.devices == "3"){
+        devicesTotal += 10683
+      }
+      if (this.devices == "4"){
+        devicesTotal += 14244
+      }
+      return devicesTotal
     },
+
+
+
 
     getTotalFood(){
       let foodTotal = 0
       if (this.food == "1" ) {
-        foodTotal += 1
+        foodTotal += 3811
       }
       if (this.food == "2"){
-        foodTotal += 2
+        foodTotal += 2903
       }
       if (this.food == "3"){
-        foodTotal += 3
+        foodTotal += 5625
       }
       if (this.food == "4"){
-        foodTotal += 4
+        foodTotal += 3901
       }
       return foodTotal
     },
@@ -221,15 +249,27 @@ export default {
         travelTotal += 0
       }
       if (this.travel == "train"){
-        travelTotal += 1
+        travelTotal += 22
       }
       if (this.travel == "bus"){
-        travelTotal += 2
+        travelTotal += 109
       }
       if (this.travel == "car"){
-        travelTotal += 3
+        travelTotal += 167
       }
       return travelTotal * this.distance
+    },
+
+
+    getTotalCarbon(){
+      let runningTotalCarbon = 0
+      runningTotalCarbon += this.getTotalTravel()
+      runningTotalCarbon += this.getTotalPurchases()
+      runningTotalCarbon += this.getTotalFood()
+      runningTotalCarbon += this.getTotalRecycling()
+      runningTotalCarbon += this.getTotalDevices()
+      return runningTotalCarbon
+
     }
 
 
@@ -274,9 +314,12 @@ label {
   margin-bottom: 10px;
 }
 
-#tabs {
 
+li {
+  color: white;
 }
+
+
 
 #details-form {
   border-radius: 15px;
@@ -300,19 +343,39 @@ label {
 #devices-question {
   font-size: 200%;
   color: white;
+  -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
 }
 
 #travel-question {
   font-size: 200%;
   color: white;
+  -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
 }
 
 #big-form {
   align: center;
+    color: white;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    border: solid 5px;
+    border-radius: 25px;
+    padding: 5%;
+    font-weight: bold;
+
 }
 
 #devices{
   align: center;
 }
+
+.form-control {
+  background-color: #0000f;
+  opacity: 50;
+
+}
+
+
 
 </style>
