@@ -10,17 +10,21 @@
       </b-tab>
 
       <b-tab title="Travel Habits">
-        <p id="travel-question">So {{name}}, How did you travel to CodeClan today?</p>
+        <p id="travel-question">So {{name}}, How did you travel to today?</p>
 
-        <select v-model="travel" >
+
+        <select name="travel" v-model="travel" >
           <option disabled value="">Select a mode of transport...</option>
           <option value="bus">Bus</option>
           <option value="train">Train</option>
           <option value="cycle">Cycle/Walk</option>
           <option value="car">Car/Taxi</option>
         </select>
-        <select v-model="distance" >
-          <option disabled value="How far did you travel?">How far did you travel...</option>
+
+      </br>
+    </br>
+        <select name="distance" v-model="distance" >
+          <option disabled value="">How far did you travel...</option>
           <option value="1">0-1 Miles</option>
           <option value="2">1-2 Miles</option>
           <option value="4">2-4 Miles</option>
@@ -32,10 +36,10 @@
     </b-tab>
 
     <b-tab title="Food Choices">
-      <b-form-group id="diet-question" label="Choose a diet type:">
+      <b-form-group id="diet-question" label="Diet type:">
         <b-form-radio-group id="checkbox" buttons>
-          <b-form-radio v-model="food" name="some-radios" value="1">Vegetarian</b-form-radio>
-          <b-form-radio v-model="food" name="some-radios" value="2">Vegan</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="1">Vegan</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="2">Vegetarian</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="3">Meat Eater</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="4">Pescetarian</b-form-radio>
         </b-form-radio-group>
@@ -54,6 +58,7 @@
           <b-form-checkbox value=200 >Barista Coffee</b-form-checkbox>
           <b-form-checkbox value=145150 >Attended Big Event</b-form-checkbox>
           <b-form-checkbox value=350 >Bottle of Fizzy Juice</b-form-checkbox>
+          <b-form-checkbox value=181 >Online Purchase (delivered)</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
@@ -213,10 +218,10 @@ export default {
     getTotalFood(){
       let foodTotal = 0
       if (this.food == "1" ) {
-        foodTotal += 3811
+        foodTotal += 2903
       }
       if (this.food == "2"){
-        foodTotal += 2903
+        foodTotal += 3811
       }
       if (this.food == "3"){
         foodTotal += 5625
@@ -309,7 +314,7 @@ label {
   min-width: 100px;
   display: inline-block;
   background-color: #162D50;
-  height: 100%;
+  height: 25%;
   font-size: 25%;
   border: solid 3px;
 }
@@ -331,6 +336,10 @@ li {
   color: white;
 }
 
+select {
+  width: 25%;
+}
+
 
 
 #details-form {
@@ -346,6 +355,10 @@ li {
 #checkbox-label {
   font-size: 200%;
   color: #71C837;
+}
+
+#travel-label {
+  font-size: 200%;
 }
 
 #checkbox {
