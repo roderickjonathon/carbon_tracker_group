@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <div>
+    <div>git 
 
       <apexcharts id="leaderboard" width="1000" type="bar" :options="chartOptions" :series="series"></apexcharts>
     </div>

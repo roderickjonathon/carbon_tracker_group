@@ -10,7 +10,7 @@
       </b-tab>
 
       <b-tab title="Travel Habits">
-        <p id="travel-question">So {{name}}, How did you travel to today?</p>
+        <p id="travel-question">So {{name}}, how did you travel to today?</p>
 
 
         <select name="travel" v-model="travel" >
@@ -56,9 +56,11 @@
           <b-form-checkbox value=20 >Pack of Cigarettes</b-form-checkbox>
           <b-form-checkbox value=100 >Bottled Water</b-form-checkbox>
           <b-form-checkbox value=200 >Barista Coffee</b-form-checkbox>
-          <b-form-checkbox value=145150 >Attended Big Event</b-form-checkbox>
-          <b-form-checkbox value=350 >Bottle of Fizzy Juice</b-form-checkbox>
-          <b-form-checkbox value=181 >Online Purchase (delivered)</b-form-checkbox>
+          <b-form-checkbox value=14150 >Attended Gig/Conference</b-form-checkbox>
+          <b-form-checkbox value=350 >Bottle of Juice</b-form-checkbox>
+          <b-form-checkbox value=181 >Online Purchase</b-form-checkbox>
+          <b-form-checkbox value=169 >Chocolate Bar/Sweetie</b-form-checkbox>
+          <b-form-checkbox value=2500 >Takeaway Food</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
@@ -67,7 +69,7 @@
 
     <b-tab  title="Devices">
       <b-form-group id="checkbox-label" label="How long did you spend using devices?">
-        <p>Phones, tablets, tv, streaming etc</p>
+        <p>Phones, tablets, TV, streaming etc</p>
       </b-form-group>
       <div>
         <b-form-group>
@@ -92,7 +94,7 @@
 
 
     <b-tab title="Recycling">
-      <b-form-group id="checkbox-label" label="What do you recycle?">
+      <b-form-group id="checkbox-label" label="What did you recycle?">
         <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
           <b-form-checkbox id="checkbox" value="-128">Paper</b-form-checkbox>
           <b-form-checkbox id="checkbox" value="-17">Glass</b-form-checkbox>
@@ -352,6 +354,7 @@ select {
 #submit-button {
   background-color:  #53565700;
   font-size: 80%;
+  color: #71C837;
 }
 
 #checkbox-label {
