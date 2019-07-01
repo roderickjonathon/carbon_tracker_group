@@ -14,23 +14,25 @@
 
         <select v-model="travel" >
           <option disabled value="">Select a mode of transport...</option>
-          <option>Bus</option>
-          <option>Train</option>
-          <option>Cycle/Walk</option>
-          <option>Car/Taxi</option>
+          <option value="bus">Bus</option>
+          <option value="train">Train</option>
+          <option value="cycle">Cycle/Walk</option>
+          <option value="car">Car/Taxi</option>
         </select>
       </form>
+      {{ getTotalTravel() }}
     </b-tab>
 
     <b-tab title="Dietry">
       <b-form-group id="devices-question" label="Choose a diet type:">
         <b-form-radio-group buttons>
-          <b-form-radio v-model="food" name="some-radios" value="vegatarian">Vegetarian</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="vegetarian">Vegetarian</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="vegan">Vegan</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="meat">Meat Eater</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="pescetarian">Pescetarian</b-form-radio>
         </b-form-radio-group>
       </b-form-group>
+      {{ getTotalFood()}}
     </b-tab>
 
     <b-tab title="Purchases">
@@ -66,38 +68,38 @@
 
 
 
-</b-tab>
-
-<!-- The above function isn't working so we'll need to sort that! -->
-
-
-<b-tab title="Recycling">
-  <b-form-group id="checkbox-label" label="What do you recycle?">
-    <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
-      <b-form-checkbox id="checkbox" value="plastic">Plastic</b-form-checkbox>
-      <b-form-checkbox id="checkbox" value="glass">Glass</b-form-checkbox>
-      <b-form-checkbox id="checkbox" value="food waste">Food Waste</b-form-checkbox>
-      <b-form-checkbox id="checkbox" value="electronics">Electronics</b-form-checkbox>
-    </b-form-checkbox-group>
-
-    <form id="submit-button" v-on:submit="addProfile">
-      <button type="submit" name="button">Complete Form</button>
-    </form>
-  </b-form-group>
-
-</b-tab>
+    </b-tab>
 
 
 
 
-</b-tabs>
-<div class="text-center">
-  <b-button-group class="mt-2">
-    <b-button @click="tabIndex--">Previous</b-button>
-    <b-button @click="tabIndex++">Next</b-button>
-  </b-button-group>
+    <b-tab title="Recycling">
+      <b-form-group id="checkbox-label" label="What do you recycle?">
+        <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
+          <b-form-checkbox id="checkbox" value="plastic">Plastic</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="glass">Glass</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="food waste">Food Waste</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="electronics">Electronics</b-form-checkbox>
+        </b-form-checkbox-group>
 
-</div>
+        <form id="submit-button" v-on:submit="addProfile">
+          <button type="submit" name="button">Complete Form</button>
+        </form>
+      </b-form-group>
+
+    </b-tab>
+
+
+
+
+  </b-tabs>
+  <div class="text-center">
+    <b-button-group class="mt-2">
+      <b-button @click="tabIndex--">Previous</b-button>
+      <b-button @click="tabIndex++">Next</b-button>
+    </b-button-group>
+
+  </div>
 </div>
 </template>
 
@@ -164,10 +166,41 @@ export default {
       return parseInt(total)
     },
 
-    getTotalByTab(){
-      
+    getTotalFood(){
+      let foodTotal = 0
+      if (this.food == "vegan") {
+        foodTotal += 1
+      }
+      if (this.food == "vegetarian"){
+        foodTotal += 2
+      }
+      if (this.food == "meat"){
+        foodTotal += 3
+      }
+      return foodTotal
+    },
 
+    getTotalTravel(){
+      let travelTotal = 0
+      if (this.travel == "cycle"){
+        travelTotal += 0
+      }
+      if (this.travel == "bus"){
+        travelTotal += 1
+      }
+      if (this.travel == "train"){
+        travelTotal += 2
+      }
+      if (this.travel == "car"){
+        travelTotal += 3
+      }
+      return travelTotal
     }
+
+    // getTotalPurchases(){
+    //   let purchaseTotal = 0
+    //   if (this.purchases == "")
+    // }
 
 
   }
@@ -223,7 +256,7 @@ label {
 
 #checkbox-label {
   font-size: 200%;
-    color: white;
+  color: white;
 }
 
 #checkbox {
@@ -237,7 +270,7 @@ label {
 
 #travel-question {
   font-size: 200%;
-    color: white;
+  color: white;
 }
 
 #big-form {
