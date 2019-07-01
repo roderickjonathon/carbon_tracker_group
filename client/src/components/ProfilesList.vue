@@ -1,18 +1,6 @@
 <template lang="html">
   <div class="wrapper">
     <ul>
-      <!-- <div id="grid" :profiles="profiles" v-for="profile in profiles">
-        <p>{{ profile.name }}</p>
-        <p>{{ profile.email}}</p>
-        <p>{{ profile.travel}}</p>
-        <p>{{ profile.food}}</p>
-        <p>{{ profile.recycling.join("  ")}}</p>
-        <p>{{ profile.purchases.join(" ")}}</p>
-        <p>{{ profile.devices.join(" ")}}</p>
-        <button type="button" v-on:click="deleteProfile (profile)">Delete Profile</button>
-        <button type="button">Create Carbon Score</button>
-
-      </div> -->
     </ul>
 
   </div>

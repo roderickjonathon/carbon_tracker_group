@@ -11,6 +11,7 @@
     "bootstrap-vue": "^2.0.0-rc.24",
     "core-js": "^2.6.5",
     "g": "^2.0.1",
+    "jquery": "^3.4.1",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.4.0",
     "vue-router": "^3.0.6"
