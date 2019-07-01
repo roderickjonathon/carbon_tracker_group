@@ -3,8 +3,8 @@
     <nav>
       <img id='logo' src="@/assets/images/logo_earth.png" alt="">
     </br>
-      <router-link  :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
-      <router-link  :to="{ name: 'score'}">See How You Did Today</router-link>
+      <router-link id="link"  :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
+      <router-link  id="link" :to="{ name: 'score'}">See How You Did Today</router-link>
 
     </nav>
     <router-view :profiles="profiles" id="view"></router-view>
@@ -91,6 +91,7 @@ export default {
 
 
 
+
   /* display: flex; */
 }
 
@@ -106,10 +107,69 @@ body {
 
 }
 
-#logo {
+#devices___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
 
+#__BVID__14___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
+
+#__BVID__10___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
+
+#__BVID__16___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
+#__BVID__24___BV_tab_button__{
+  color: white;
+  font-weight: bold;
 
 }
+#__BVID__42___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
+#__BVID__77___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
+
+#__BVID__69___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
+
+#__BVID__63___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
+#__BVID__67___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+
+}
+#__BVID__95___BV_tab_button__{
+  color: white;
+  font-weight: bold;
+}
+
+.a {
+    color: white;
+}
+
+#link {
+  color: white;
+  font-weight: bold;
+  font-size: 180%;
+  padding: 5vh 5vw;
+}
+
 
 
 </style>
