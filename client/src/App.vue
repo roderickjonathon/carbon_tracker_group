@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <nav>
-      <img src="@/assets/images/logo_earth.png" alt="">
+      <img id='logo' src="@/assets/images/logo_earth.png" alt="">
 
     </nav>
     <router-view id="view"></router-view>
 
-<!--
-    <profiles-form/>
+
+    <!-- <profiles-form/> -->
     <!-- <profiles-list :profiles="profiles"/> -->
     <!-- <leaderboard :profiles="profiles"/> -->
 
@@ -103,7 +103,8 @@ body {
 
 }
 
-img {
+#logo {
+  
 
 }
 

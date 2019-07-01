@@ -2,7 +2,7 @@
   <div id="big-form">
 
     <!-- This is the form for getting info from user -->
-    <b-tabs v-model="tabIndex"  justified fill content-class="mt-3">
+    <b-tabs id="tabs" v-model="tabIndex"  justified fill content-class="mt-3">
 
       <b-tab  title="Personal Details" active >
         <b-form-input v-model="name" placeholder="Enter your name" required></b-form-input>
@@ -200,6 +200,10 @@ label {
 
 .formWrap {
   margin-bottom: 10px;
+}
+
+#tabs {
+
 }
 
 #details-form {

@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <b-table striped hover :items="profiles"></b-table>
+    <b-table id="leaderboar" striped hover :items="profiles"></b-table>
   </div>
 </template>
 
