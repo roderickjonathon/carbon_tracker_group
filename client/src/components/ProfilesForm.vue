@@ -33,7 +33,7 @@
 
     <b-tab title="Dietry">
       <b-form-group id="devices-question" label="Choose a diet type:">
-        <b-form-radio-group buttons>
+        <b-form-radio-group id="dietry options" buttons>
           <b-form-radio v-model="food" name="some-radios" value="1">Vegetarian</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="2">Vegan</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="3">Meat Eater</b-form-radio>
@@ -101,7 +101,7 @@
         </form>
       </b-form-group>
       <!-- <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p> -->
-      <p>{{this.getTotalCarbon()}}</p>
+
     </b-tab>
 
 
@@ -343,17 +343,27 @@ li {
 #devices-question {
   font-size: 200%;
   color: white;
+  -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
 }
 
 #travel-question {
   font-size: 200%;
   color: white;
+  -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
 }
 
 #big-form {
   align: center;
     color: white;
-    margin-top: 8%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    border: solid 5px;
+    border-radius: 25px;
+    padding: 5%;
+    font-weight: bold;
+
 }
 
 #devices{

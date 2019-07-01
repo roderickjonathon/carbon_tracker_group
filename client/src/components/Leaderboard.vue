@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <div>
-      {{arrayOfFootprints()}}
+
       <apexcharts id="leaderboard" width="500" type="bar" :options="chartOptions" :series="series"></apexcharts>
     </div>
 
@@ -75,7 +75,7 @@ export default {
       const result = this.profiles.map( (profile) => {
         return profile.totalCarbon
       })
-      return result
+      return result.sort()
     },
 
     arrayOfNames(){
@@ -104,7 +104,7 @@ export default {
   border: solid 5px;
   border-color: white;
   border-radius: 25px;
-  font-size: 200%;
+  font-size: 100%;
 
 }
 
