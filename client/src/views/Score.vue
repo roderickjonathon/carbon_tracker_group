@@ -1,5 +1,6 @@
 <template>
   <div id="">
+    <carbon-chart :profiles="profiles" title='Chart' />
     <profiles-list :profiles="profiles" title='Score' />
     <leaderboard :profiles="profiles" title='Leaderboard'/>
   </div>
@@ -7,6 +8,9 @@
 <script>
 import Leaderboard from '@/components/Leaderboard';
 import ProfilesList from '@/components/ProfilesList';
+import CarbonChart from '@/components/CarbonChart';
+import VueApexCharts from 'apexcharts'
+
 
 
 export default {
@@ -14,7 +18,8 @@ export default {
   props: ['profiles'],
   components: {
     "profiles-list": ProfilesList,
-    "leaderboard": Leaderboard
+    "leaderboard": Leaderboard,
+    "carbon-chart": CarbonChart
   }
 }
 </script>
