@@ -317,6 +317,7 @@ label {
   height: 25%;
   font-size: 25%;
   border: solid 3px;
+  margin-top: 5%;
 }
 
 button {
@@ -325,6 +326,7 @@ button {
   border-radius: 25px;
   font-size: 125%;
   margin-top: 5%;
+  margin-bottom: -15%;
 }
 
 .formWrap {
