@@ -8,7 +8,11 @@ import ProfilesForm from '@/components/ProfilesForm.vue';
 
 export default {
   components: {
+<<<<<<< HEAD
     "profiles-form": ProfilesForm
+=======
+    'profiles-form':ProfilesForm
+>>>>>>> jonny
   }
 }
 </script>

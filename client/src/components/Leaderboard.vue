@@ -1,6 +1,10 @@
 <template lang="html">
   <div>
+<<<<<<< HEAD
     <b-table id="leaderboar" striped hover :items="profiles"></b-table>
+=======
+    <b-table id="leaderboard" striped hover :items="profiles"></b-table>
+>>>>>>> jonny
   </div>
 </template>
 
@@ -83,6 +87,10 @@ table td:last-child {
 }
 table tbody tr:nth-child(2n) td {
   background: #D4D8F9;
+}
+
+#leaderboard {
+  color: white;
 }
 
 
