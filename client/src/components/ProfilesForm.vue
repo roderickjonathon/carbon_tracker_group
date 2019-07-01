@@ -20,7 +20,7 @@
           <option value="car">Car/Taxi</option>
         </select>
         <select v-model="distance" >
-          <option disabled value="">How far did you travel?</option>
+          <option disabled value="How far did you travel?">How far did you travel...</option>
           <option value="1">0-1 Miles</option>
           <option value="2">1-2 Miles</option>
           <option value="4">2-4 Miles</option>
@@ -47,13 +47,15 @@
 
       <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
-          <b-form-checkbox value="1">New Clothes</b-form-checkbox>
-          <b-form-checkbox value="2">Ready-made meals/sandwhiches</b-form-checkbox>
-          <b-form-checkbox value="3">Bottled Water</b-form-checkbox>
-          <b-form-checkbox value="4">Barista Coffee</b-form-checkbox>
+          <b-form-checkbox value=0 >None</b-form-checkbox>
+          <b-form-checkbox value=1 >New Clothes</b-form-checkbox>
+          <b-form-checkbox value=2 >Ready-made meals/sandwhiches</b-form-checkbox>
+          <b-form-checkbox value=3 >Bottled Water</b-form-checkbox>
+          <b-form-checkbox value=4 >Barista Coffee</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
+      <p id="travel-question"> {{getTotalPurchases()}}KG of carbon</p>
     </b-tab>
 
     <b-tab id="devices" title="Devices">
@@ -70,6 +72,7 @@
             <b-form-checkbox v-model="devices" name="M" value="4">4+ hours</b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
+        <p id='travel-question'>{{getTotalDevices()}}KG of Carbon</p>
       </div>
 
 
@@ -94,6 +97,7 @@
           <button type="submit" name="button">Complete Form</button>
         </form>
       </b-form-group>
+      <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p>
 
     </b-tab>
 
@@ -168,18 +172,18 @@ export default {
       this.devices = ""
     },
 
-    getTotalDeviceTime(){
+    getTotalDevices(){
       // Need to sort this function for calculating total device time use.
 
       const total = this.devices.reduce( (runningTotal, device) => {
-        return runningTotal += device
+        return runningTotal += Number(device)
       }, 0)
-      return parseInt(total)
+      return total
     },
 
     getTotalFood(){
       let foodTotal = 0
-      if (this.food == "1") {
+      if (this.food == "1" ) {
         foodTotal += 1
       }
       if (this.food == "2"){
@@ -194,15 +198,32 @@ export default {
       return foodTotal
     },
 
+
+    getTotalPurchases(){
+      let total = this.purchases.reduce((runningTotal, purchase) => {
+        return runningTotal += Number(purchase)
+      }, 0)
+      return total
+
+    },
+
+    getTotalRecycling(){
+      let total = this.recycling.reduce((runningTotal, item) => {
+        return runningTotal += Number(item)
+      }, 0)
+      return total
+
+    },
+
     getTotalTravel(){
       let travelTotal = 0
       if (this.travel == "cycle"){
         travelTotal += 0
       }
-      if (this.travel == "bus"){
+      if (this.travel == "train"){
         travelTotal += 1
       }
-      if (this.travel == "train"){
+      if (this.travel == "bus"){
         travelTotal += 2
       }
       if (this.travel == "car"){
@@ -211,10 +232,9 @@ export default {
       return travelTotal * this.distance
     }
 
-    // getTotalPurchases(){
-    //   let purchaseTotal = 0
-    //   if (this.purchases == "")
-    // }
+
+
+
 
 
   }
