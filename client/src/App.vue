@@ -3,8 +3,8 @@
     <nav>
       <img id='logo' src="@/assets/images/logo_earth.png" alt="">
     </br>
-      <router-link  :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
-      <router-link  :to="{ name: 'score'}">See How You Did Today</router-link>
+      <router-link id="link"  :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
+      <router-link  id="link" :to="{ name: 'score'}">See How You Did Today</router-link>
 
     </nav>
     <router-view :profiles="profiles" id="view"></router-view>
@@ -91,6 +91,7 @@ export default {
 
 
 
+
   /* display: flex; */
 }
 
@@ -106,10 +107,14 @@ body {
 
 }
 
-#logo {
 
-
+#link {
+  color: white;
+  font-weight: bold;
+  font-size: 180%;
+  padding: 5vh 5vw;
 }
+
 
 
 </style>

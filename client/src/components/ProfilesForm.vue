@@ -2,7 +2,7 @@
   <div id="big-form">
 
     <!-- This is the form for getting info from user -->
-    <b-tabs id="tabs" v-model="tabIndex"  justified fill content-class="mt-3">
+    <b-tabs class="tabs" v-model="tabIndex"  justified fill content-class="mt-3" >
 
       <b-tab  title="Personal Details" active >
         <b-form-input v-model="name" placeholder="Enter your name" required></b-form-input>
@@ -49,7 +49,7 @@
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
           <b-form-checkbox value=0 >None</b-form-checkbox>
           <b-form-checkbox value=1 >New Clothes</b-form-checkbox>
-          <b-form-checkbox value=2 >Ready-made meals/sandwhiches</b-form-checkbox>
+          <b-form-checkbox value=2 >Ready-made meals/sandwiches</b-form-checkbox>
           <b-form-checkbox value=3 >Bottled Water</b-form-checkbox>
           <b-form-checkbox value=4 >Barista Coffee</b-form-checkbox>
         </b-form-checkbox-group>
@@ -98,7 +98,7 @@
         </form>
       </b-form-group>
       <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p>
-
+      <p>{{this.getTotalCarbon()}}</p>
     </b-tab>
 
 
@@ -135,7 +135,9 @@ export default {
       food: "",
       recycling: [],
       purchases: [],
-      devices: []
+      devices: 0,
+      totalCarbon: 0
+
 
 
 
@@ -146,12 +148,13 @@ export default {
       const profile = {
         name: this.name,
         email: this.email,
-        travel: this.travel,
-        distance: this.distance,
-        food: this.food,
-        recycling: this.recycling,
-        purchases: this.purchases,
-        devices: this.devices
+        travel: this.getTotalTravel(),
+        // distance: this.distance,
+        food: this.getTotalFood(),
+        recycling: this.getTotalRecycling(),
+        purchases: this.getTotalPurchases(),
+        devices: this.getTotalDevices(),
+        totalCarbon: this.getTotalCarbon()
       }
       fetch("http://localhost:3000/api/profiles", {
         method: "POST",
@@ -165,21 +168,43 @@ export default {
       this.name = ""
       this.email = ""
       this.travel = ""
-      this.distance = ""
+      this.distance = 0
       this.food = ""
-      this.recycling = ""
-      this.purchases = ""
-      this.devices = ""
+      this.recycling = []
+      this.purchases = []
+      this.devices = 0
+      this.totalCarbon = 0
+
     },
+
+    // getTotalDevices(){
+    //
+    //
+    //   const total = this.devices.reduce( (runningTotal, device) => {
+    //     return runningTotal += Number(device)
+    //   }, 0)
+    //   return total
+    // },
 
     getTotalDevices(){
-      // Need to sort this function for calculating total device time use.
-
-      const total = this.devices.reduce( (runningTotal, device) => {
-        return runningTotal += Number(device)
-      }, 0)
-      return total
+      let devicesTotal = 0
+      if (this.devices == "1" ) {
+        devicesTotal += 1
+      }
+      if (this.devices == "2"){
+        devicesTotal += 2
+      }
+      if (this.devices == "3"){
+        devicesTotal += 3
+      }
+      if (this.devices == "4"){
+        devicesTotal += 4
+      }
+      return devicesTotal
     },
+
+
+
 
     getTotalFood(){
       let foodTotal = 0
@@ -230,6 +255,18 @@ export default {
         travelTotal += 3
       }
       return travelTotal * this.distance
+    },
+
+
+    getTotalCarbon(){
+      let runningTotalCarbon = 0
+      runningTotalCarbon += this.getTotalTravel()
+      runningTotalCarbon += this.getTotalPurchases()
+      runningTotalCarbon += this.getTotalFood()
+      runningTotalCarbon += this.getTotalRecycling()
+      runningTotalCarbon += this.getTotalDevices()
+      return runningTotalCarbon
+
     }
 
 
@@ -274,9 +311,12 @@ label {
   margin-bottom: 10px;
 }
 
-#tabs {
 
+li {
+  color: white;
 }
+
+
 
 #details-form {
   border-radius: 15px;
@@ -309,10 +349,20 @@ label {
 
 #big-form {
   align: center;
+    color: white;
+    margin-top: 10%;
 }
 
 #devices{
   align: center;
 }
+
+.form-control {
+  background-color: #0000f;
+  opacity: 50;
+
+}
+
+
 
 </style>
