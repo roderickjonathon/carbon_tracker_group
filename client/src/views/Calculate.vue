@@ -7,6 +7,8 @@
 import ProfilesForm from '@/components/ProfilesForm.vue';
 
 export default {
+  name: 'calculate',
+  props:['profiles'],
   components: {
     'profiles-form':ProfilesForm
   }
