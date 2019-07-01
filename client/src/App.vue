@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav>
-      <img id='logo' src="@/assets/images/logo_earth.png" alt="">
+      <img id='logo' src="@/assets/images/logo_earth.png" alt="" width="30%" height="30%">
     </br>
       <router-link id="link"  :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
       <router-link  id="link" :to="{ name: 'score'}">See How You Did Today</router-link>
