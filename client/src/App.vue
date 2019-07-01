@@ -3,6 +3,9 @@
     <nav>
       <img src="@/assets/images/logo_earth.png" alt="">
 
+      <router-link :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
+      <router-link :to="{ name: 'score'}">See How You Did Toda</router-link>
+
     </nav>
     <router-view id="view"></router-view>
 
