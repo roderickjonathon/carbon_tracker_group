@@ -48,10 +48,11 @@
       <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
           <b-form-checkbox value=0 >None</b-form-checkbox>
-          <b-form-checkbox value=1 >New Clothes</b-form-checkbox>
-          <b-form-checkbox value=2 >Ready-made meals/sandwiches</b-form-checkbox>
-          <b-form-checkbox value=3 >Bottled Water</b-form-checkbox>
-          <b-form-checkbox value=4 >Barista Coffee</b-form-checkbox>
+          <b-form-checkbox value=10 >Buy New Clothes</b-form-checkbox>
+          <b-form-checkbox value=20 >Smoke Cigarettes</b-form-checkbox>
+          <b-form-checkbox value=100 >Bottled Water</b-form-checkbox>
+          <b-form-checkbox value=200 >Barista Coffee</b-form-checkbox>
+          <b-form-checkbox value=145150 >Attend Event</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
@@ -87,10 +88,12 @@
     <b-tab title="Recycling">
       <b-form-group id="checkbox-label" label="What do you recycle?">
         <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
-          <b-form-checkbox id="checkbox" value="-1">Plastic</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="-2">Glass</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="-3">Food Waste</b-form-checkbox>
-          <b-form-checkbox id="checkbox" value="-4">Electronics</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-128">Paper</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-17">Glass</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-30">Plastic</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-214">Aluminium</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-21">Wood</b-form-checkbox>
+          <b-form-checkbox id="checkbox" value="-90">Food</b-form-checkbox>
         </b-form-checkbox-group>
 
         <form id="submit-button" v-on:submit="addProfile">
@@ -189,16 +192,16 @@ export default {
     getTotalDevices(){
       let devicesTotal = 0
       if (this.devices == "1" ) {
-        devicesTotal += 1
+        devicesTotal += 3561
       }
       if (this.devices == "2"){
-        devicesTotal += 2
+        devicesTotal += 7122
       }
       if (this.devices == "3"){
-        devicesTotal += 3
+        devicesTotal += 10683
       }
       if (this.devices == "4"){
-        devicesTotal += 4
+        devicesTotal += 14244
       }
       return devicesTotal
     },
@@ -209,16 +212,16 @@ export default {
     getTotalFood(){
       let foodTotal = 0
       if (this.food == "1" ) {
-        foodTotal += 1
+        foodTotal += 3811
       }
       if (this.food == "2"){
-        foodTotal += 2
+        foodTotal += 2903
       }
       if (this.food == "3"){
-        foodTotal += 3
+        foodTotal += 5625
       }
       if (this.food == "4"){
-        foodTotal += 4
+        foodTotal += 3901
       }
       return foodTotal
     },
@@ -246,13 +249,13 @@ export default {
         travelTotal += 0
       }
       if (this.travel == "train"){
-        travelTotal += 1
+        travelTotal += 22
       }
       if (this.travel == "bus"){
-        travelTotal += 2
+        travelTotal += 109
       }
       if (this.travel == "car"){
-        travelTotal += 3
+        travelTotal += 167
       }
       return travelTotal * this.distance
     },
