@@ -31,9 +31,9 @@
       <!-- <p id="travel-question">You emitted {{ getTotalTravel() }}KG of carbon</p> -->
     </b-tab>
 
-    <b-tab title="Dietry">
-      <b-form-group id="devices-question" label="Choose a diet type:">
-        <b-form-radio-group id="dietry options" buttons>
+    <b-tab title="Food Choices">
+      <b-form-group id="diet-question" label="Choose a diet type:">
+        <b-form-radio-group id="checkbox" buttons>
           <b-form-radio v-model="food" name="some-radios" value="1">Vegetarian</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="2">Vegan</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="3">Meat Eater</b-form-radio>
@@ -46,27 +46,27 @@
     <b-tab title="Purchases">
 
       <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
-        <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons >
-          <b-form-checkbox value=0 >None</b-form-checkbox>
-          <b-form-checkbox value=10 >Buy New Clothes</b-form-checkbox>
-          <b-form-checkbox value=20 >Smoke Cigarettes</b-form-checkbox>
+        <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons required >
+          <b-form-checkbox value=0 >Nothing At All    </b-form-checkbox>
+          <b-form-checkbox value=10 >New Clothes</b-form-checkbox>
+          <b-form-checkbox value=20 >Pack of Cigarettes</b-form-checkbox>
           <b-form-checkbox value=100 >Bottled Water</b-form-checkbox>
           <b-form-checkbox value=200 >Barista Coffee</b-form-checkbox>
-          <b-form-checkbox value=145150 >Attend Event</b-form-checkbox>
+          <b-form-checkbox value=145150 >Attended Big Event</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
       <!-- <p id="travel-question"> {{getTotalPurchases()}}KG of carbon</p> -->
     </b-tab>
 
-    <b-tab id="devices" title="Devices">
-      <b-form-group id="devices-question" label="How long did you spend using devices?">
+    <b-tab  title="Devices">
+      <b-form-group id="checkbox-label" label="How long did you spend using devices?">
         <p>Phones, tablets, tv, streaming etc</p>
       </b-form-group>
       <div>
         <b-form-group>
 
-          <b-form-checkbox-group buttons name="phone" required>
+          <b-form-checkbox-group id="checkbox-btn" buttons name="phone" required>
             <b-form-checkbox v-model="devices" name="J" value="1">Less than 1 hour</b-form-checkbox>
             <b-form-checkbox v-model="devices" name="K" value="2">1-2 hours</b-form-checkbox>
             <b-form-checkbox v-model="devices" name="L" value="3">2-4 hours</b-form-checkbox>
@@ -307,7 +307,18 @@ h2 {
 label {
   min-width: 100px;
   display: inline-block;
+  background-color: #162D50;
+  height: 100%;
+  font-size: 25%;
+  border: solid 3px;
+}
 
+button {
+  background-color: #162D50;
+  color: white;
+  border-radius: 25px;
+  font-size: 125%;
+  margin-top: 5%;
 }
 
 .formWrap {
@@ -333,7 +344,7 @@ li {
 
 #checkbox-label {
   font-size: 200%;
-  color: white;
+  color: #71C837;
 }
 
 #checkbox {
@@ -342,28 +353,48 @@ li {
 
 #devices-question {
   font-size: 200%;
-  color: white;
-  -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: black;
+  color: #71C837;
+  /* -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black; */
 }
 
 #travel-question {
   font-size: 200%;
-  color: white;
-  -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: black;
+  color: #71C837;
+  /* -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black; */
+}
+
+#diet-question {
+  font-size: 200%;
+  color: #71C837;
+  /* -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black; */
+}
+
+#dietry-options {
+  font-size: 200%;
+  color: #71C837;
 }
 
 #big-form {
   align: center;
-    color: white;
-    margin-top: 2%;
+    color: #71C837;
+    margin-top: 8%;
     margin-bottom: 5%;
     border: solid 5px;
     border-radius: 25px;
+    border-color: white;
     padding: 5%;
+    padding-top: 5%;
     font-weight: bold;
+    background-color: #162D50;
 
+
+}
+
+#checkbox-btn{
+  font-size: 600%;
 }
 
 #devices{

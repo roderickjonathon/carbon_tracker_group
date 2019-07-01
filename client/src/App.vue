@@ -4,7 +4,7 @@
       <img id='logo' src="@/assets/images/logo_earth.png" alt="" width="30%" height="30%">
     </br>
       <router-link id="link"  :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
-      <router-link  id="link" :to="{ name: 'score'}">See How You Did Today</router-link>
+      <router-link  id="link" :to="{ name: 'score'}">See Your Stats</router-link>
 
     </nav>
     <router-view :profiles="profiles" id="view"></router-view>
@@ -103,6 +103,9 @@ body {
 
 }
 
+a {
+
+}
 
 #link {
   color: white;
@@ -110,6 +113,10 @@ body {
   font-size: 180%;
   padding: 5vh 5vw;
   text-decoration: underline;
+}
+
+img {
+  margin-top: -3%;
 }
 
 
