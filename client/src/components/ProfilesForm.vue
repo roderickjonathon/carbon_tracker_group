@@ -94,7 +94,7 @@
         </b-form-checkbox-group>
 
         <form id="submit-button" v-on:submit="addProfile">
-          <button type="submit" name="button">Complete Form</button>
+          <button v-on:click="tabIndex = 0" type="submit" name="button">Complete Form</button>
         </form>
       </b-form-group>
       <!-- <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p> -->
