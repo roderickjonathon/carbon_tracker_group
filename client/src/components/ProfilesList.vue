@@ -1,7 +1,11 @@
 <template lang="html">
   <div class="wrapper">
     <ul>
+<<<<<<< HEAD
       <div id="grid" v-for="profile in profiles">
+=======
+      <!-- <div id="grid" :profiles="profiles" v-for="profile in profiles">
+>>>>>>> 3d6b03222d8b01bcd6b9a1f15053e73b5701c219
         <p>{{ profile.name }}</p>
         <p>{{ profile.email}}</p>
         <p>{{ profile.travel}}</p>
