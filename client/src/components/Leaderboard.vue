@@ -31,10 +31,26 @@ export default {
           chart: {
             id: 'vuechart-example'
           },
+
+          plotOptions: {
+            bar: {
+              horizontal: true
+            }
+          },
           xaxis: {
-            categories: [this.arrayOfNames().join(" ")]
+            categories: [this.arrayOfNames().join(" ")],
+            labels: {
+               hideOverlappingLabels: true,
+                rotate: 90
+             },
+            style: {
+                fontSize: '140%',
+
+            }
+       }
+
           }
-        },
+        ,
         series: [{
 
           data: this.arrayOfFootprints()
@@ -75,7 +91,8 @@ export default {
       const result = this.profiles.map( (profile) => {
         return profile.totalCarbon
       })
-      return result.sort()
+       result.sort()
+       return result.reverse()
     },
 
     arrayOfNames(){
@@ -108,39 +125,10 @@ export default {
 
 }
 
-table {
-  font-family: inherit;
-  width: 750px;
-  border-collapse: collapse;
-  border: 3px solid #44475C0;
-  margin: 10px 10px 0 10px;
-  border-radius: 25px;
-}
 
-table th {
-  text-transform: uppercase;
-  text-align: left;
-  background: #44475C00;
+
+.graph-font {
   color: white;
-  padding: 8px;
-  min-width: 30px;
-  border: solid;
-  border-radius: 25px;
-}
-
-table td {
-  text-align: left;
-  padding: 8px;
-  border-right: 2px solid #7D82A8;
-  border-radius: 25px;
-}
-table td:last-child {
-  border-right: none;
-  border-radius: 25px;
-}
-table tbody tr:nth-child(2n) td {
-  background: #D4D8F90;
-  border-radius: 25px;
 }
 
 
