@@ -146,12 +146,12 @@ export default {
       const profile = {
         name: this.name,
         email: this.email,
-        travel: this.travel,
-        distance: this.distance,
-        food: this.food,
-        recycling: this.recycling,
-        purchases: this.purchases,
-        devices: this.devices
+        travel: this.getTotalTravel(),
+        // distance: this.distance,
+        food: this.getTotalFood(),
+        recycling: this.getTotalRecycling(),
+        purchases: this.getTotalPurchases(),
+        devices: this.getTotalDevices()
       }
       fetch("http://localhost:3000/api/profiles", {
         method: "POST",
