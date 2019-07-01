@@ -37,14 +37,18 @@ export default {
               horizontal: true
             }
           },
+
+          dataLabels: {
+            enabled: true
+          },
           xaxis: {
-            categories: [this.arrayOfNames().join(" ")],
+            categories: this.arrayOfNames(),
             labels: {
-               hideOverlappingLabels: true,
-                rotate: 90
+               // hideOverlappingLabels: true,
+                // rotate: 90
              },
             style: {
-                fontSize: '140%',
+                fontSize: '200%',
 
             }
        }
