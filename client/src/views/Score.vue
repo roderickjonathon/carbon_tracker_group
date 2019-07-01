@@ -1,6 +1,6 @@
 <template>
   <div id="">
-    <ProfilesList title='Score' />
+    <profiles-list title='Score' />
   </div>
 </template>
 <script>
@@ -10,7 +10,7 @@ import ProfilesList from '@/components/ProfilesList';
 
 export default {
   components: {
-    ProfilesList
+    "profiles-list": ProfilesList
   }
 }
 </script>

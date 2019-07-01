@@ -9,7 +9,7 @@
 <!--
     <profiles-form/>
     <!-- <profiles-list :profiles="profiles"/> -->
-    <!-- <leaderboard :profiles="profiles"/> -->
+    <leaderboard :profiles="profiles"/>
 
   </div>
 </template>
