@@ -1,8 +1,9 @@
 <template lang="html">
   <div>
     <div>
-
+      
       <apexcharts id="leaderboard" width="1000" type="bar" :options="chartOptions" :series="series"></apexcharts>
+
     </div>
 
 
@@ -115,6 +116,12 @@ export default {
         return profile.name
       })
       return result
+    },
+
+    pieChartData(){
+
+
+
     }
 
 

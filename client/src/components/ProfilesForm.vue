@@ -104,11 +104,10 @@
           <b-form-checkbox id="checkbox" value="-90">Food</b-form-checkbox>
         </b-form-checkbox-group>
 
-        <form id="submit-button" v-on:submit="addProfile">
-          <button v-on:click="tabIndex = 0" type="submit" name="button">Complete Form</button>
+        <form  id="submit-button" v-on:submit="addProfile">
+        <router-link id='link' :to="{ name: 'score'}">  <button v-on:click="tabIndex = 0" type="submit" name="button">Complete Form</button></router-link>
         </form>
       </b-form-group>
-      <!-- <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p> -->
 
     </b-tab>
 
@@ -141,11 +140,11 @@ export default {
       tabIndex: 1,
       name: "",
       email: "",
-      travel: "",
+      travel: 0,
       distance: 0,
-      food: "",
-      recycling: [],
-      purchases: [],
+      food: 0,
+      recycling: 0,
+      purchases: 0,
       devices: 0,
       totalCarbon: 0
 
@@ -178,11 +177,11 @@ export default {
       })
       this.name = ""
       this.email = ""
-      this.travel = ""
+      this.travel = 0
       this.distance = 0
-      this.food = ""
-      this.recycling = []
-      this.purchases = []
+      this.food = 0
+      this.recycling = 0
+      this.purchases = 0
       this.devices = 0
       this.totalCarbon = 0
 

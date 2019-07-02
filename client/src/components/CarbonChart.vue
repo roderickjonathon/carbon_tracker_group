@@ -1,6 +1,8 @@
 <template lang="html">
   <div id="chart">
-     <apexchart type=pie width=380 :options="chartOptions" :series="series" />
+     <apexcharts type=pie width=380 :options="chartOptions" :series="series" />
+    <!-- <p> {{getLastItemOfArray()}} </p> -->
+    <!-- <p>{{this.profiles[0]}}</p> -->
    </div>
 </template>
 
@@ -13,12 +15,15 @@ import VueApexCharts from 'vue-apexcharts'
 export default {
   name: "carbon-chart",
   props: ["profiles"],
+
   components: {
-    "apexchart": VueApexCharts
+    "apexcharts": VueApexCharts
   },
+  props:['profiles'],
   data(){
     return {
-      series: [44, 33, 54, 90],
+      chartData: [],
+      series: [this.profiles[0].devices, this.profiles[0].purchases, this.profiles[0].travel, this.profiles[0].food],
       chartOptions: {
         colors: ['#93C3EE', '#E5C6A0', '#669DB5', '#94A74A'],
         fill: {
@@ -39,6 +44,7 @@ export default {
         dataLabels: {
           enabled: false
         },
+
         responsive: [{
           breakpoint: 480,
           options: {
@@ -51,6 +57,43 @@ export default {
           }
         }]
       }
+    }
+  },
+
+  // methods:{
+    // getLastItemOfArray(){
+    //   let profiles = this.profiles
+    //   return profiles[0].devices
+      // const purchases = profiles[0].purchases
+      // const devices = profiles[0].devices
+      // const travel = profiles[0].travel
+      // const food = profiles[0].food
+      //
+      // this.series.push(purchases)
+      // this.series.push(devices)
+      // this.series.push(travel)
+      // this.series.push(food)
+
+    // }
+
+
+
+  // },
+
+  mounted(){
+
+    eventBus.$on("profile-added", (data) => {
+      console.log("data", data);
+      this.series = data
+    })
+
+
+
+},
+
+  computed: {
+    arrayReverse(){
+      return this.profiles.reverse()
     }
   }
 }
@@ -65,6 +108,10 @@ export default {
   border: solid 5px;
   background-color: white;
   display: inline-grid;
+}
+
+p {
+  color: white;
 }
 
 

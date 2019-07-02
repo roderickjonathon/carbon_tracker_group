@@ -64,14 +64,7 @@ export default {
         }
       }
     },
-    updateProfile(id){
-      for (let i = 0; i < this.profiles.length; i++){
-        const profile = this.profiles[i]
-        if (id == profile._id){
-          this.profiles[i].checked_in = !(this.profiles[i].checked_in)
-        }
-      }
-    }
+    
   }
 }
 </script>
