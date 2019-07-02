@@ -51,7 +51,7 @@
 
       <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons required >
-          <b-form-checkbox value=0 >Nothing At All    </b-form-checkbox>
+
           <b-form-checkbox value=10 >New Clothes</b-form-checkbox>
           <b-form-checkbox value=20 >Pack of Cigarettes</b-form-checkbox>
           <b-form-checkbox value=100 >Bottled Water</b-form-checkbox>
@@ -358,7 +358,7 @@ select {
 }
 
 #checkbox {
-  font-size: 300%;
+  font-size: 250%;
 }
 
 #devices-question {

@@ -1,5 +1,8 @@
 html {
-  /* height: 100%; */
-  /* background-image: url('./src/assets/images/earthbg.jpg'); */
+  background-repeat: no-repeat;
 
+}
+
+body {
+  background-repeat: no-repeat;
 }
