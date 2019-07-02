@@ -2,8 +2,16 @@
   <div id="carbon-chart">
     <h1>Your Personal Pie</h1>
     <apexcharts id="chart" type=pie width=800 :options="chartOptions" :series="series" />
-    <!-- <p> {{getLastItemOfArray()}} </p> -->
-    <!-- <p>{{this.profiles[0]}}</p> -->
+    <p v-if="this.profiles[0].food >= 3901">Have you considered trying Vegetarian or Vegan a few days a week...?</p>
+    <p v-if="this.profiles[0].food <= 3811">Good work with your food choices, the planet thanks you and so do the animals!</p>
+    <p v-if="this.profiles[0].purchases <= 1765">Limited purchases today, well done</p>
+    <p v-if="this.profiles[0].purchases > 1765">You purchases are carbon heavy!</p>
+    <p v-if="this.profiles[0].recycling == 0">It would be great if you would consider recycling, the world is in trouble!!</p>
+    <p v-if="this.profiles[0].recycling <-17">Keep up the good work on your recycling</p>
+    <p v-if="this.profiles[0].recycling <-50">You are a waste superstar</p>
+    <p v-if="this.profiles[0].devices <8300">Good effort you have a less than average footprint based on your device use!</p>
+    <p v-if="this.profiles[0].devices >8300">Consider using your devices less, did you know vampire power accounts for 10% of your bill!</p>
+    <p v-if="this.profiles[0].travel >8300">Consider using your devices less, did you know vampire power accounts for 10% of your bill!</p>
   </div>
 </template>
 
@@ -51,7 +59,7 @@ export default {
           enabled: true,
           formatter: function(val, opt) {
 
-            return Math.floor(val)  + "Kg"
+            return Math.floor(val)  + "%"
           },
           style: {
             fontSize: '30px',
@@ -83,11 +91,6 @@ export default {
     }
   },
 
-  methods: {
-    arrayReverse(){
-      return this.profiles.reverse()
-    }
-  },
 
   mounted(){
 

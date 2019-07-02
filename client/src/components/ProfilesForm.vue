@@ -143,8 +143,8 @@ export default {
       tabIndex: 1,
       name: "",
       email: "",
-      travel: 0,
-      distance: 0,
+      travel: "",
+      distance: "",
       food: 0,
       recycling: 0,
       purchases: 0,
@@ -275,7 +275,7 @@ export default {
       runningTotalCarbon += this.getTotalFood()
       runningTotalCarbon += this.getTotalRecycling()
       runningTotalCarbon += this.getTotalDevices()
-      return runningTotalCarbon / 1000
+      return Math.floor(runningTotalCarbon / 1000)
 
     }
 
