@@ -188,15 +188,6 @@ export default {
 
     },
 
-    // getTotalDevices(){
-    //
-    //
-    //   const total = this.devices.reduce( (runningTotal, device) => {
-    //     return runningTotal += Number(device)
-    //   }, 0)
-    //   return total
-    // },
-
     getTotalDevices(){
       let devicesTotal = 0
       if (this.devices == "1" ) {
