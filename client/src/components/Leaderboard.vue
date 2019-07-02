@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <div>git 
+    <div>
 
       <apexcharts id="leaderboard" width="1000" type="bar" :options="chartOptions" :series="series"></apexcharts>
     </div>
@@ -14,6 +14,7 @@
 import { BTable } from 'bootstrap-vue';
 import ApexCharts from 'apexcharts';
 import VueApexCharts from 'vue-apexcharts'
+import CarbonChart from '@/components/CarbonChart.vue'
 
 
 export default {
@@ -22,7 +23,9 @@ export default {
 
   name: "leaderboard",
   components:{
-    "apexcharts": VueApexCharts
+    "apexcharts": VueApexCharts,
+    "carbon-chart": CarbonChart
+
   },
   props:["profiles"],
   data() {
