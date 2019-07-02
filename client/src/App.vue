@@ -114,10 +114,11 @@ img {
 
 .climate-clock{
   position:relative;
-  padding-bottom:30%;
+  padding-bottom:-30%;
   height:0;
   overflow:hidden;
   max-width: 100%;
+
 }
 
 
@@ -127,6 +128,7 @@ img {
   left:0;
   width:100%;
   height:20%;
+
 }
 
 @media(min-width:700px){.climate-clock{padding-bottom:56.25%;}}

@@ -44,7 +44,7 @@ export default {
           id: 'vuechart-example',
           events: {
             click: function(){
-              this.arrayOfNames().unshift()
+
             }
           }
         },
