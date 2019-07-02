@@ -31,11 +31,22 @@ export default {
   props:["profiles"],
   data() {
     return {
-      colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'],
+      colors: ['#008FFB', '#00E396', '#FEB019', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'],
       chartOptions: {
+        fill: {
+          colors: ['#71C837'],
+          type: 'image',
+          opacity: 100
+
+        },
         chart: {
           height: 50,
-          id: 'vuechart-example'
+          id: 'vuechart-example',
+          events: {
+            click: function(){
+              this.arrayOfNames().unshift()
+            }
+          }
         },
 
         colors: this.colors,
@@ -65,8 +76,11 @@ export default {
         xaxis: {
           categories: this.arrayOfNames(),
           labels: {
+
+
+
             styles:{
-              colors: this.colors,
+              colors: ['#71C837'],
               fontSize:'40px'
             }
           },
@@ -89,21 +103,7 @@ export default {
       })
     },
 
-    handleChange(profile){
-      const edited = {
-        checked_in: !profile.checked_in
-      }
-      const id = profile._id
-      fetch("http://localhost:3000/api/profiles/" + id, {
-        method: "PUT",
-        body: JSON.stringify(edited),
-        headers: { 'Content-Type': 'application/json'}
-      })
-      .then((res) => res.json())
-      .then((res) => {
-        eventBus.$emit("update-profile", id)
-      })
-    },
+
 
     arrayOfFootprints(){
       const result = this.profiles.map( (profile) => {
@@ -142,6 +142,7 @@ export default {
   border-color: white;
   border-radius: 25px;
   /* font-size: 150%; */
+  background-color: #162D50;
 
 
 }
@@ -151,7 +152,8 @@ apexcharts-svg {
 }
 
 h1 {
-  color: white;
+  color: #71C837;
+  font-size: 300%;
 }
 
 

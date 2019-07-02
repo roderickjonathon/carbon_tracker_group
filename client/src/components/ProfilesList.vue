@@ -26,21 +26,8 @@ export default {
       })
     },
 
-    handleChange(profile){
-      const edited = {
-        checked_in: !profile.checked_in
-      }
-      const id = profile._id
-      fetch("http://localhost:3000/api/profiles/" + id, {
-        method: "PUT",
-        body: JSON.stringify(edited),
-        headers: { 'Content-Type': 'application/json'}
-      })
-      .then((res) => res.json())
-      .then((res) => {
-        eventBus.$emit("update-profile", id)
-      })
-    }
+
+    
   }
 
 }
