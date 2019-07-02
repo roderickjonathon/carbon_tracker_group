@@ -7,11 +7,13 @@
     <p v-if="this.profiles[0].purchases <= 1765">Limited purchases today, well done</p>
     <p v-if="this.profiles[0].purchases > 1765">You purchases are carbon heavy!</p>
     <p v-if="this.profiles[0].recycling == 0">It would be great if you would consider recycling, the world is in trouble!!</p>
-    <p v-if="this.profiles[0].recycling <-17">Keep up the good work on your recycling</p>
-    <p v-if="this.profiles[0].recycling <-50">You are a waste superstar</p>
-    <p v-if="this.profiles[0].devices <8300">Good effort you have a less than average footprint based on your device use!</p>
-    <p v-if="this.profiles[0].devices >8300">Consider using your devices less, did you know vampire power accounts for 10% of your bill!</p>
-    <p v-if="this.profiles[0].travel >8300">Consider using your devices less, did you know vampire power accounts for 10% of your bill!</p>
+    <p v-if="this.profiles[0].recycling < -17 && this.profiles[0].recycling > -50 ">Keep up the good work on your recycling</p>
+    <p v-if="this.profiles[0].recycling < -50">You are a waste superstar</p>
+    <p v-if="this.profiles[0].devices < 8300">Good effort you have a less than average footprint based on your device use!</p>
+    <p v-if="this.profiles[0].devices > 8300">Consider using your devices less, did you know vampire power accounts for 10% of your bill!</p>
+    <p v-if="this.profiles[0].travel == 0">Well done for travelling green! </p>
+    <p v-if="this.profiles[0].travel > 0 && this.profiles[0].travel <= 2172 ">Public transport saves carbon, well done!</p>
+    <p v-if="this.profiles[0].travel > 2172">Cars are one of the biggest polluters, consider public transport or even a wee cycle.</p>
   </div>
 </template>
 

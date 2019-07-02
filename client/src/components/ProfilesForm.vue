@@ -259,10 +259,10 @@ export default {
         travelTotal += 22
       }
       if (this.travel == "bus"){
-        travelTotal += 109
+        travelTotal += 272
       }
       if (this.travel == "car"){
-        travelTotal += 167
+        travelTotal += 4175
       }
       return travelTotal * this.distance
     },
