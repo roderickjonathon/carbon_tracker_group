@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "apexcharts": "^3.8.1",
-    "bootstrap-vue": "^2.0.0-rc.24",
+    "bootstrap-vue": "^2.0.0-rc.25",
     "core-js": "^2.6.5",
     "g": "^2.0.1",
     "jquery": "^3.4.1",

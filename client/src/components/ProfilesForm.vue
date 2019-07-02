@@ -10,17 +10,21 @@
       </b-tab>
 
       <b-tab title="Travel Habits">
-        <p id="travel-question">So {{name}}, How did you travel to CodeClan today?</p>
+        <p id="travel-question">So {{name}}, how did you travel to today?</p>
 
-        <select v-model="travel" >
+
+        <select name="travel" v-model="travel" >
           <option disabled value="">Select a mode of transport...</option>
           <option value="bus">Bus</option>
           <option value="train">Train</option>
           <option value="cycle">Cycle/Walk</option>
           <option value="car">Car/Taxi</option>
         </select>
-        <select v-model="distance" >
-          <option disabled value="How far did you travel?">How far did you travel...</option>
+
+      </br>
+    </br>
+        <select name="distance" v-model="distance" >
+          <option disabled value="">How far did you travel...</option>
           <option value="1">0-1 Miles</option>
           <option value="2">1-2 Miles</option>
           <option value="4">2-4 Miles</option>
@@ -32,10 +36,10 @@
     </b-tab>
 
     <b-tab title="Food Choices">
-      <b-form-group id="diet-question" label="Choose a diet type:">
+      <b-form-group id="diet-question" label="Diet type:">
         <b-form-radio-group id="checkbox" buttons>
-          <b-form-radio v-model="food" name="some-radios" value="1">Vegetarian</b-form-radio>
-          <b-form-radio v-model="food" name="some-radios" value="2">Vegan</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="1">Vegan</b-form-radio>
+          <b-form-radio v-model="food" name="some-radios" value="2">Vegetarian</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="3">Meat Eater</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="4">Pescetarian</b-form-radio>
         </b-form-radio-group>
@@ -52,7 +56,11 @@
           <b-form-checkbox value=20 >Pack of Cigarettes</b-form-checkbox>
           <b-form-checkbox value=100 >Bottled Water</b-form-checkbox>
           <b-form-checkbox value=200 >Barista Coffee</b-form-checkbox>
-          <b-form-checkbox value=145150 >Attended Big Event</b-form-checkbox>
+          <b-form-checkbox value=14150 >Attended Gig/Conference</b-form-checkbox>
+          <b-form-checkbox value=350 >Bottle of Juice</b-form-checkbox>
+          <b-form-checkbox value=181 >Online Purchase</b-form-checkbox>
+          <b-form-checkbox value=169 >Chocolate Bar/Sweetie</b-form-checkbox>
+          <b-form-checkbox value=2500 >Takeaway Food</b-form-checkbox>
         </b-form-checkbox-group>
 
       </b-form-group>
@@ -61,7 +69,7 @@
 
     <b-tab  title="Devices">
       <b-form-group id="checkbox-label" label="How long did you spend using devices?">
-        <p>Phones, tablets, tv, streaming etc</p>
+        <p>Phones, tablets, TV, streaming etc</p>
       </b-form-group>
       <div>
         <b-form-group>
@@ -86,7 +94,7 @@
 
 
     <b-tab title="Recycling">
-      <b-form-group id="checkbox-label" label="What do you recycle?">
+      <b-form-group id="checkbox-label" label="What did you recycle?">
         <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
           <b-form-checkbox id="checkbox" value="-128">Paper</b-form-checkbox>
           <b-form-checkbox id="checkbox" value="-17">Glass</b-form-checkbox>
@@ -180,15 +188,6 @@ export default {
 
     },
 
-    // getTotalDevices(){
-    //
-    //
-    //   const total = this.devices.reduce( (runningTotal, device) => {
-    //     return runningTotal += Number(device)
-    //   }, 0)
-    //   return total
-    // },
-
     getTotalDevices(){
       let devicesTotal = 0
       if (this.devices == "1" ) {
@@ -212,10 +211,10 @@ export default {
     getTotalFood(){
       let foodTotal = 0
       if (this.food == "1" ) {
-        foodTotal += 3811
+        foodTotal += 2903
       }
       if (this.food == "2"){
-        foodTotal += 2903
+        foodTotal += 3811
       }
       if (this.food == "3"){
         foodTotal += 5625
@@ -268,7 +267,7 @@ export default {
       runningTotalCarbon += this.getTotalFood()
       runningTotalCarbon += this.getTotalRecycling()
       runningTotalCarbon += this.getTotalDevices()
-      return runningTotalCarbon
+      return runningTotalCarbon / 1000
 
     }
 
@@ -308,9 +307,10 @@ label {
   min-width: 100px;
   display: inline-block;
   background-color: #162D50;
-  height: 100%;
+  height: 25%;
   font-size: 25%;
   border: solid 3px;
+  margin-top: 5%;
 }
 
 button {
@@ -319,6 +319,7 @@ button {
   border-radius: 25px;
   font-size: 125%;
   margin-top: 5%;
+  margin-bottom: -15%;
 }
 
 .formWrap {
@@ -328,6 +329,10 @@ button {
 
 li {
   color: white;
+}
+
+select {
+  width: 25%;
 }
 
 
@@ -340,11 +345,16 @@ li {
 #submit-button {
   background-color:  #53565700;
   font-size: 80%;
+  color: #71C837;
 }
 
 #checkbox-label {
   font-size: 200%;
   color: #71C837;
+}
+
+#travel-label {
+  font-size: 200%;
 }
 
 #checkbox {

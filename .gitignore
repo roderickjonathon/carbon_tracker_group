@@ -1,5 +1,4 @@
-client/node_modules
+
 server/node_modules
 seeds.js
 !*.css
-⁨!client/node_modules⁩/bootstrap⁩/dist⁩/css⁩/bootstrap.css

@@ -29,7 +29,7 @@ export default {
               '../../assets/images/4679113782_ca13e2e6c0_z.jpg',
               '../../assets/images/2979121308_59539a3898_z.jpg'
             ],
-            width: 25,
+            width: 50,
             imagedHeight: 25
           },
         },
