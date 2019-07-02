@@ -44,7 +44,7 @@ export default {
     .then((data) => this.profiles = data)
 
     eventBus.$on("profile-added", (data) => {
-      this.profiles.push(data)
+      this.profiles.unshift(data)
     })
 
     eventBus.$on("delete-profile", (id) => {

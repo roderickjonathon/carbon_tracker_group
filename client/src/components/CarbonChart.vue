@@ -26,7 +26,10 @@ export default {
       chartData: [],
       series: [this.profiles[0].devices, this.profiles[0].purchases, this.profiles[0].travel, this.profiles[0].food],
       chartOptions: {
+        colors: this.colors,
+        labels:['Devices', 'Purchases', 'Transport', 'Food'],
 
+        useSeriescolors: true,
 
         fill: {
           colors: ['#162D50', '#00E396', '#FEB019', '#71C837', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'],
@@ -46,6 +49,10 @@ export default {
         },
         dataLabels: {
           enabled: true,
+          formatter: function(val, opt) {
+
+            return Math.floor(val)  + "Kg"
+          },
           style: {
             fontSize: '30px',
 
@@ -59,9 +66,14 @@ export default {
                 width: 400
               },
               legend: {
-                position: 'bottom',
+                position: 'right',
+                fontSize: '50px',
+
                 labels: {
-                  colors: this.colors
+                  colors: this.colors,
+                  userSeriesColors: true,
+                  fontSize: '50px'
+
                 }
               }
             }

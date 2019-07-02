@@ -107,7 +107,7 @@ export default {
       const result = this.profiles.map( (profile) => {
         return profile.totalCarbon
       })
-      return result
+      return result.sort()
       // return result.reverse()
     },
 
@@ -118,11 +118,7 @@ export default {
       return result
     },
 
-    pieChartData(){
 
-
-
-    }
 
 
   }
