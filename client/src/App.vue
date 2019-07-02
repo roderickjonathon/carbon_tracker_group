@@ -2,7 +2,7 @@
   <div id="app">
     <nav>
 
-      <img id='logo' src="@/assets/images/logo_earth.png" alt="" width="30%" height="30%">
+      <img id='logo' src="@/assets/images/logo_earth.png" alt="" width="40%" height="40%">
     </br>
       <router-link id="link"  :to="{ name: 'calculate'}">Calculate Your Footprint</router-link> |
       <router-link  id="link" :to="{ name: 'score'}">See Your Stats</router-link>
@@ -64,7 +64,7 @@ export default {
         }
       }
     },
-    
+
   }
 }
 </script>

@@ -6,6 +6,7 @@ import Score from '@/views/Score';
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '',

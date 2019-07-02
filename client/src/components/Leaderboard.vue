@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
     <div>
-      
-      <apexcharts id="leaderboard" width="1000" type="bar" :options="chartOptions" :series="series"></apexcharts>
+      <h1>Leaderboard</h1>
+      <apexcharts name="leaderboard" id="leaderboard" width="1000" type="bar" :options="chartOptions" :series="series"></apexcharts>
 
     </div>
 
@@ -107,7 +107,7 @@ export default {
       const result = this.profiles.map( (profile) => {
         return profile.totalCarbon
       })
-      return result.sort()
+      return result
       // return result.reverse()
     },
 
@@ -150,6 +150,10 @@ export default {
 
 apexcharts-svg {
   font-size: 300%;
+}
+
+h1 {
+  color: white;
 }
 
 

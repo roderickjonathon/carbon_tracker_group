@@ -104,9 +104,11 @@
           <b-form-checkbox id="checkbox" value="-90">Food</b-form-checkbox>
         </b-form-checkbox-group>
 
-        <form  id="submit-button" v-on:submit="addProfile">
-        <router-link id='link' :to="{ name: 'score'}">  <button v-on:click="tabIndex = 0" type="submit" name="button">Complete Form</button></router-link>
+        <!-- <router-link  id='link' v-on:click="addProfile" :to="{ name: 'score'}"> -->
+        <form  id="submit-button" v-on:submit.prevent="addProfile">
+          <button   type="submit" name="button">Complete Form</button>
         </form>
+        <!-- </router-link> -->
       </b-form-group>
 
     </b-tab>
@@ -128,6 +130,7 @@
 <script>
 import { eventBus } from '@/main';
 import { TabsPlugin } from 'bootstrap-vue';
+import router from 'router'
 
 
 
@@ -175,16 +178,22 @@ export default {
       .then((data) => {
         eventBus.$emit("profile-added", data)
       })
-      this.name = ""
-      this.email = ""
-      this.travel = 0
-      this.distance = 0
-      this.food = 0
-      this.recycling = 0
-      this.purchases = 0
-      this.devices = 0
-      this.totalCarbon = 0
+      .then(_ => {
 
+        this.name = ""
+        this.email = ""
+        this.travel = 0
+        this.distance = 0
+        this.food = 0
+        this.recycling = 0
+        this.purchases = 0
+        this.devices = 0
+        this.totalCarbon = 0
+
+        this.$router.push({ name: 'score'})})
+
+
+      // .then(window.location.href = "http://localhost:8080/score?button=#/score")
     },
 
     getTotalDevices(){
