@@ -1,8 +1,9 @@
 <template lang="html">
   <div>
     <div>
+      <h1>Leaderboard</h1>
+      <apexcharts name="leaderboard" id="leaderboard" width=1200 type="bar" :options="chartOptions" :series="series"></apexcharts>
 
-      <apexcharts id="leaderboard" width="1000" type="bar" :options="chartOptions" :series="series"></apexcharts>
     </div>
 
 
@@ -33,7 +34,7 @@ export default {
       colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'],
       chartOptions: {
         chart: {
-          height: 350,
+          height: 50,
           id: 'vuechart-example'
         },
 
@@ -49,12 +50,14 @@ export default {
 
         dataLabels: {
           enabled: true,
-          textAnchor: 'start',
+          // textAnchor: 'start',
+          align: 'left',
+          verticalAlign: 'middle',
           formatter: function(val, opt) {
             return opt.w.globals.labels[opt.dataPointIndex] + "  : " + val + "Kg"
           },
-          offsetX: 0,
-          offsetY: -30,
+          offsetX: 10,
+          offsetY: -35,
           style:{
             fontSize: '80px;'
           }
@@ -115,7 +118,9 @@ export default {
         return profile.name
       })
       return result
-    }
+    },
+
+
 
 
   }
@@ -143,6 +148,10 @@ export default {
 
 apexcharts-svg {
   font-size: 300%;
+}
+
+h1 {
+  color: white;
 }
 
 

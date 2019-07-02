@@ -51,7 +51,7 @@
 
       <b-form-group id="checkbox-label" label="What everyday purchases did you make today?">
         <b-form-checkbox-group id="checkbox" v-model="purchases" name="purchases" buttons required >
-          <b-form-checkbox value=0 >Nothing At All    </b-form-checkbox>
+
           <b-form-checkbox value=10 >New Clothes</b-form-checkbox>
           <b-form-checkbox value=20 >Pack of Cigarettes</b-form-checkbox>
           <b-form-checkbox value=100 >Bottled Water</b-form-checkbox>
@@ -104,11 +104,12 @@
           <b-form-checkbox id="checkbox" value="-90">Food</b-form-checkbox>
         </b-form-checkbox-group>
 
-        <form id="submit-button" v-on:submit="addProfile">
-          <button v-on:click="tabIndex = 0" type="submit" name="button">Complete Form</button>
+        <!-- <router-link  id='link' v-on:click="addProfile" :to="{ name: 'score'}"> -->
+        <form  id="submit-button" v-on:submit.prevent="addProfile">
+          <button   type="submit" name="button">Complete Form</button>
         </form>
+        <!-- </router-link> -->
       </b-form-group>
-      <!-- <p id="travel-question">{{getTotalRecycling()}}KG of carbon</p> -->
 
     </b-tab>
 
@@ -129,6 +130,7 @@
 <script>
 import { eventBus } from '@/main';
 import { TabsPlugin } from 'bootstrap-vue';
+import router from 'router'
 
 
 
@@ -142,10 +144,10 @@ export default {
       name: "",
       email: "",
       travel: "",
-      distance: 0,
-      food: "",
-      recycling: [],
-      purchases: [],
+      distance: "",
+      food: 0,
+      recycling: 0,
+      purchases: 0,
       devices: 0,
       totalCarbon: 0
 
@@ -176,16 +178,22 @@ export default {
       .then((data) => {
         eventBus.$emit("profile-added", data)
       })
-      this.name = ""
-      this.email = ""
-      this.travel = ""
-      this.distance = 0
-      this.food = ""
-      this.recycling = []
-      this.purchases = []
-      this.devices = 0
-      this.totalCarbon = 0
+      .then(_ => {
 
+        this.name = ""
+        this.email = ""
+        this.travel = 0
+        this.distance = 0
+        this.food = 0
+        this.recycling = 0
+        this.purchases = 0
+        this.devices = 0
+        this.totalCarbon = 0
+
+        this.$router.push({ name: 'score'})})
+
+
+      // .then(window.location.href = "http://localhost:8080/score?button=#/score")
     },
 
     getTotalDevices(){
@@ -251,10 +259,10 @@ export default {
         travelTotal += 22
       }
       if (this.travel == "bus"){
-        travelTotal += 109
+        travelTotal += 272
       }
       if (this.travel == "car"){
-        travelTotal += 167
+        travelTotal += 4175
       }
       return travelTotal * this.distance
     },
@@ -267,7 +275,7 @@ export default {
       runningTotalCarbon += this.getTotalFood()
       runningTotalCarbon += this.getTotalRecycling()
       runningTotalCarbon += this.getTotalDevices()
-      return runningTotalCarbon / 1000
+      return Math.floor(runningTotalCarbon / 1000)
 
     }
 
@@ -358,7 +366,7 @@ select {
 }
 
 #checkbox {
-  font-size: 300%;
+  font-size: 250%;
 }
 
 #devices-question {
