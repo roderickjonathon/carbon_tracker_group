@@ -2,7 +2,7 @@
   <div id="carbon-chart">
     <h1>{{this.profiles[0].name}}, here's your stats!</h1>
     <div id="pie">
-      <apexcharts id="chart" type=pie width=35%  :options="chartOptions" :series="series" />
+      <apexcharts id="chart" type=pie width=55%  :options="chartOptions" :series="series" />
     </div>
     <div id='tips'>
       <div id="food-tips">
@@ -151,8 +151,8 @@ p {
 h1 {
   color: #71C837;
   margin-top: 5%;
-  font-size: 380%;
-  -webkit-text-stroke-width: 1px;
+  font-size: 480%;
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #162D50;
 }
 
@@ -164,14 +164,21 @@ h3 {
 }
 
 #chart {
-  margin: -1%;
+  /* margin: -1%; */
+/*  */
+max-width: 35vw;
+margin-left: 5%;
 
+}
 
-
+#carbon-chart{
+  display: flex;
+  flex-flow: column wrap;
 
 }
 
 #tips {
+  /* height: 35vh; */
   width: 35vw;
   border: solid 5px;
   border-radius: 25px;

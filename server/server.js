@@ -3,10 +3,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router.js');
+// const history = require('connect-history-api-fallback');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json())
+// app.use(history())
+
+// history({
+//   index: '/'
+// });
 
 MongoClient.connect('mongodb://localhost:27017')
 .then(( visitor ) => {

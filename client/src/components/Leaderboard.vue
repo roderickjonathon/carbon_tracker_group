@@ -149,7 +149,9 @@ apexcharts-svg {
 
 h1 {
   color: #71C837;
-  font-size: 300%;
+  font-size: 480%;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #162D50;
 }
 
 
