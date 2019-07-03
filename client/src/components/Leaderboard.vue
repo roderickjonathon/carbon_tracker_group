@@ -41,12 +41,8 @@ export default {
         },
         chart: {
           height: 50,
-          id: 'vuechart-example',
-          events: {
-            click: function(){
+          id: 'vuechart-example'
 
-            }
-          }
         },
 
         colors: this.colors,

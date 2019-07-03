@@ -353,8 +353,8 @@ select {
 #diet-question {
   font-size: 200%;
   color: #71C837;
-  /* -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: black; */
+  -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #162D50;
 }
 
 #dietry-options {

@@ -1,7 +1,9 @@
 <template lang="html">
   <div id="carbon-chart">
     <h1>{{this.profiles[0].name}}, here's your stats!</h1>
-    <apexcharts id="chart" type=pie width=800  :options="chartOptions" :series="series" />
+    <div id="pie">
+      <apexcharts id="chart" type=pie width=35%  :options="chartOptions" :series="series" />
+    </div>
     <div id='tips'>
       <div id="food-tips">
         <h3>Your food habits produced {{this.profiles[0].food / 1000}}Kg of C0²</h3>
@@ -86,26 +88,26 @@ export default {
           },
 
 
-            labels: {
-              colors: [ '#71C837', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'],
-              userSeriesColors: false,
-              fontSize: '80px'
+          labels: {
+            colors: [ '#71C837', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'],
+            userSeriesColors: false,
+            fontSize: '80px'
 
+          }
+        },
+
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 400
             }
-          },
 
-          responsive: [{
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 400
-              }
-
-            }
-          }]
-        }
+          }
+        }]
       }
-    },
+    }
+  },
 
 
 
@@ -150,6 +152,8 @@ h1 {
   color: #71C837;
   margin-top: 5%;
   font-size: 380%;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #162D50;
 }
 
 h3 {
@@ -175,7 +179,7 @@ h3 {
   margin-left: 49%;
   margin-bottom: 2%;
   margin-right: 20%;
-  margin-top: -35%;
+  margin-top: -10%;
   background-color: #162D50;
 
 }
