@@ -11,7 +11,7 @@
       <div id="purchases-tips">
         <h3>Your purchasing habits produced {{this.profiles[0].purchases / 1000}}Kg of C0²</h3>
         <p v-if="this.profiles[0].purchases <= 1765">Limited purchases today, well done</p>
-        <p v-if="this.profiles[0].purchases > 1765">You purchases are carbon heavy!</p>
+        <p v-if="this.profiles[0].purchases > 1765">Your purchases are carbon heavy!</p>
       </div>
       <div id="recycling-tips">
         <h3>Your recycling habits offset {{this.profiles[0].recycling / 1000}}Kg of C0²</h3>

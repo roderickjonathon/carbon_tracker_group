@@ -37,7 +37,7 @@
 
     <b-tab title="Food Choices">
       <b-form-group id="diet-question" label="Diet type:">
-        <b-form-radio-group id="checkbox" buttons>
+        <b-form-radio-group id="checkbox-btn" buttons>
           <b-form-radio v-model="food" name="some-radios" value="1">Vegan</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="2">Vegetarian</b-form-radio>
           <b-form-radio v-model="food" name="some-radios" value="3">Meat Eater</b-form-radio>
@@ -84,18 +84,11 @@
         <!-- <p id='travel-question'>{{getTotalDevices()}}KG of Carbon</p> -->
       </div>
 
-
-
-
-
     </b-tab>
-
-
-
 
     <b-tab title="Recycling">
       <b-form-group id="checkbox-label" label="What did you recycle?">
-        <b-form-checkbox-group id="checkbox" v-model="recycling" name="recycling" buttons >
+        <b-form-checkbox-group id="checkbox-btn" v-model="recycling" name="recycling" buttons >
           <b-form-checkbox id="checkbox" value="-128">Paper</b-form-checkbox>
           <b-form-checkbox id="checkbox" value="-17">Glass</b-form-checkbox>
           <b-form-checkbox id="checkbox" value="-30">Plastic</b-form-checkbox>
@@ -113,9 +106,6 @@
 
     </b-tab>
 
-
-
-
   </b-tabs>
   <div class="text-center">
     <b-button-group class="mt-2">
@@ -132,10 +122,6 @@ import { eventBus } from '@/main';
 import { TabsPlugin } from 'bootstrap-vue';
 import router from 'router'
 
-
-
-
-
 export default {
   name: "profiles-form",
   data(){
@@ -150,10 +136,6 @@ export default {
       purchases: 0,
       devices: 0,
       totalCarbon: 0
-
-
-
-
     }
   },
   methods: {
@@ -192,7 +174,6 @@ export default {
 
         this.$router.push({ name: 'score'})})
 
-
       // .then(window.location.href = "http://localhost:8080/score?button=#/score")
     },
 
@@ -212,9 +193,6 @@ export default {
       }
       return devicesTotal
     },
-
-
-
 
     getTotalFood(){
       let foodTotal = 0
@@ -267,7 +245,6 @@ export default {
       return travelTotal * this.distance
     },
 
-
     getTotalCarbon(){
       let runningTotalCarbon = 0
       runningTotalCarbon += this.getTotalTravel()
@@ -278,11 +255,6 @@ export default {
       return Math.floor(runningTotalCarbon / 1000)
 
     }
-
-
-
-
-
 
   }
 }
@@ -295,14 +267,12 @@ export default {
   /* width: 80%; */
 }
 
-
 form {
   width: 75%;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.7);
   padding: 20px;
   margin-bottom: 40px;
-
 
 }
 
@@ -343,11 +313,8 @@ select {
   width: 25%;
 }
 
-
-
 #details-form {
   border-radius: 15px;
-
 }
 
 #submit-button {
@@ -366,7 +333,7 @@ select {
 }
 
 #checkbox {
-  font-size: 250%;
+  font-size: 320%;
 }
 
 #devices-question {
@@ -408,11 +375,10 @@ select {
     font-weight: bold;
     background-color: #162D50;
 
-
 }
 
 #checkbox-btn{
-  font-size: 600%;
+  font-size: 700%;
 }
 
 #devices{
