@@ -74,7 +74,7 @@
       <div>
         <b-form-group>
 
-          <b-form-checkbox-group id="checkbox-btn" buttons name="phone" required>
+          <b-form-checkbox-group id="checkbox-btn-device" buttons name="phone" required>
             <b-form-checkbox v-model="devices" name="J" value="1">Less than 1 hour</b-form-checkbox>
             <b-form-checkbox v-model="devices" name="K" value="2">1-2 hours</b-form-checkbox>
             <b-form-checkbox v-model="devices" name="L" value="3">2-4 hours</b-form-checkbox>
@@ -220,6 +220,11 @@ export default {
 
     },
 
+    // This function needs to:
+    // 1. loop through the array of recycling items
+    // 2. find the sum of all the items in the array
+    // 3. return the total sum
+
     getTotalRecycling(){
       let total = this.recycling.reduce((runningTotal, item) => {
         return runningTotal += Number(item)
@@ -333,7 +338,8 @@ select {
 }
 
 #checkbox {
-  font-size: 320%;
+  font-size: 280%;
+  position: relative;
 }
 
 #devices-question {
@@ -378,11 +384,15 @@ select {
 }
 
 #checkbox-btn{
-  font-size: 700%;
+  font-size: 300%;
 }
 
 #devices{
   align: center;
+}
+
+#checkbox-btn-device {
+  font-size: 500%;
 }
 
 .form-control {

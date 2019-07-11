@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<script>
+<script> 
 import { eventBus } from '@/main';
 import VueApexCharts from 'vue-apexcharts'
 

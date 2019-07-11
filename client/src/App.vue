@@ -127,7 +127,8 @@ img {
   top:0;
   left:0;
   width:100%;
-  height:20%;
+  height:40%;
+  opacity: 0.6;
 
 }
 

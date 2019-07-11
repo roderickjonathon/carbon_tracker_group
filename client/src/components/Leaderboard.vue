@@ -99,7 +99,12 @@ export default {
       })
     },
 
-
+    // this function needs to return an array of all
+    // the carbon footprints in the database.
+    // 1 - we need to loop through the array
+    // 2 - on each iteration we need to return the .totalCarbon from each object
+    //    in the array.
+    // 3 - Then the array needs to be sorted to place the most recent entry to the start of the array.
 
     arrayOfFootprints(){
       const result = this.profiles.map( (profile) => {
